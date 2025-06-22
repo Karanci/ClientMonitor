@@ -1,43 +1,39 @@
 # DesktopApp
 
-This is a desktop application project.
+This project consists of a server and client architecture for monitoring purposes.
 
-## Features
+## Structure
 
-- Connects to a database using environment variables for security
-- Modular and easy-to-read code structure
-- Designed for easy deployment and configuration
+- **server/dist/app.exe**  
+  The main server application. Should be run on the server machine.
 
-## Getting Started
+- **client/monitoring_service.py** or **client/dist/client_hearthbeat.exe**  
+  The client monitoring service. Should be run on each client PC.
 
-1. **Clone the repository:**
-   ```
-   git clone https://github.com/Karanci/DesktopApp.git
-   ```
+## How to Use
 
-2. **Install dependencies:**
-   ```
-   pip install -r requirements.txt
-   ```
+### 1. Server Side
 
-3. **Set up environment variables:**
-   - Create a `.env` file in the `server` directory with your database credentials:
-     ```
-     DB_HOST=your_host
-     DB_USER=your_user
-     DB_PASSWORD=your_password
-     DB_NAME=your_db
-     DB_PORT=3306
-     ```
+- On the server machine, run the following executable:
+  ```
+  server/dist/app.exe
+  ```
 
-4. **Run the application:**
-   ```
-   python main.py
-   ```
+### 2. Client Side
 
-## Security
+- On each client PC, you can either:
+  - Run the Python script:
+    ```
+    python client/monitoring_service.py
+    ```
+  - Or run the compiled executable:
+    ```
+    client/dist/client_hearthbeat.exe
+    ```
 
-- **Never share your `.env` file or sensitive credentials.**
+## Configuration
+
+- Make sure to set up your environment variables for database credentials in a `.env` file (do not share this file).
 - The `.gitignore` file is configured to prevent sensitive files from being uploaded to GitHub.
 
 ## License

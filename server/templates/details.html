@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ computer.computer_name }} - Detaylar</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 100%;
+            padding: 40px;
+            margin: 0 auto;
+        }
+        .content-wrapper {
+            max-width: 2000px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+        .card {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 25px;
+            transition: transform 0.2s;
+            background-color: white;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .status-badge {
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-weight: 500;
+            font-size: 1.2rem;
+        }
+        .status-online {
+            background-color: #28a745;
+            color: white;
+        }
+        .status-offline {
+            background-color: #dc3545;
+            color: white;
+        }
+        .nav-tabs {
+            border-bottom: 2px solid #dee2e6;
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .nav-tabs .nav-link {
+            border: none;
+            color: #6c757d;
+            padding: 15px 30px;
+            font-weight: 500;
+            font-size: 1.2rem;
+            flex: 1;
+            text-align: center;
+        }
+        .nav-tabs .nav-link.active {
+            color: #007bff;
+            border-bottom: 2px solid #007bff;
+        }
+        .info-group {
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+        }
+        .info-label {
+            color: #6c757d;
+            font-weight: 500;
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+        .info-value {
+            color: #212529;
+            font-weight: 600;
+            font-size: 1.3rem;
+        }
+        .event-card, .defender-card, .port-card {
+            margin-bottom: 20px;
+            background-color: #f8f9fa;
+        }
+        .event-card {
+            border-left: 4px solid #007bff;
+        }
+        .defender-card {
+            border-left: 4px solid #dc3545;
+        }
+        .port-card {
+            border-left: 4px solid #28a745;
+        }
+        .card-body {
+            padding: 25px;
+        }
+        .display-4 {
+            font-size: 3rem;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        .card-title {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 30px;
+        }
+        .activity-time {
+            color: #6c757d;
+            font-size: 1.1rem;
+        }
+        .port-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .port-info p {
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        .port-info h6 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+        .event-info, .defender-info {
+            font-size: 1.2rem;
+        }
+        .event-info h6, .defender-info h6 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+        .scrollable-content {
+            max-height: 800px;
+            overflow-y: auto;
+            padding-right: 15px;
+        }
+        .scrollable-content::-webkit-scrollbar {
+            width: 10px;
+        }
+        .scrollable-content::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 5px;
+        }
+        .scrollable-content::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 5px;
+        }
+        .scrollable-content::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+        @media (max-width: 900px) {
+            .container {
+                padding: 20px;
+            }
+            .content-wrapper {
+                padding: 15px;
+            }
+            .nav-tabs .nav-link {
+                padding: 10px 15px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content-wrapper">
+            <!-- Başlık ve Durum -->
+            <div class="d-flex justify-content-between align-items-center mb-5">
+                <h1 class="display-4">{{ computer.computer_name }}</h1>
+                <span class="status-badge {% if computer.status == 'online' %}status-online{% else %}status-offline{% endif %}">
+                    {% if computer.status == 'online' %}
+                        <i class="fas fa-circle text-success me-2"></i>Çevrimiçi
+                    {% else %}
+                        <i class="fas fa-circle text-danger me-2"></i>Çevrimdışı
+                    {% endif %}
+                </span>
+            </div>
+
+            <!-- Sekmeler -->
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="hardware-tab" data-bs-toggle="tab" data-bs-target="#hardware" type="button" role="tab">
+                        <i class="fas fa-microchip me-2"></i>Donanım Bilgileri
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="software-tab" data-bs-toggle="tab" data-bs-target="#software" type="button" role="tab">
+                        <i class="fas fa-laptop-code me-2"></i>Yazılım Bilgileri
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="events-tab" data-bs-toggle="tab" data-bs-target="#events" type="button" role="tab">
+                        <i class="fas fa-calendar-alt me-2"></i>Event Bilgileri
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="defender-tab" data-bs-toggle="tab" data-bs-target="#defender" type="button" role="tab">
+                        <i class="fas fa-shield-alt me-2"></i>Defender Bilgileri
+                    </button>
+                </li>
+            </ul>
+
+            <!-- Sekme İçerikleri -->
+            <div class="tab-content" id="myTabContent">
+                <!-- Donanım Bilgileri -->
+                <div class="tab-pane fade show active" id="hardware" role="tabpanel">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Donanım Bilgileri</h5>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="info-group">
+                                        <div class="info-label">İşlemci</div>
+                                        <div class="info-value">{{ computer.processor }}</div>
+                                    </div>
+                                    <div class="info-group">
+                                        <div class="info-label">RAM</div>
+                                        <div class="info-value">{{ computer.ram }}</div>
+                                    </div>
+                                    <div class="info-group">
+                                        <div class="info-label">Disk Alanı</div>
+                                        <div class="info-value">{{ computer.disk_space }}</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="info-group">
+                                        <div class="info-label">Üretici</div>
+                                        <div class="info-value">{{ computer.manufacturer }}</div>
+                                    </div>
+                                    <div class="info-group">
+                                        <div class="info-label">Model</div>
+                                        <div class="info-value">{{ computer.model }}</div>
+                                    </div>
+                                    <div class="info-group">
+                                        <div class="info-label">Son Güncelleme</div>
+                                        <div class="info-value">{{ computer.last_update }}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Yazılım Bilgileri -->
+                <div class="tab-pane fade" id="software" role="tabpanel">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Yazılım Bilgileri</h5>
+                            <div class="info-group">
+                                <div class="info-label">İşletim Sistemi</div>
+                                <div class="info-value">{{ computer.operating_system }}</div>
+                            </div>
+                            <h5 class="card-title mt-4">Açık Portlar</h5>
+                            <div class="scrollable-content">
+                                {% for port in computer.ports %}
+                                <div class="card port-card">
+                                    <div class="card-body">
+                                        <div class="port-info">
+                                            <div>
+                                                <h6>Port Bilgileri</h6>
+                                                <p><strong>Port:</strong> {{ port.port }}</p>
+                                                <p><strong>İşlem:</strong> {{ port.process }}</p>
+                                                <p><strong>PID:</strong> {{ port.pid }}</p>
+                                            </div>
+                                            <div>
+                                                <h6>Bağlantı Bilgileri</h6>
+                                                <p><strong>Kullanıcı:</strong> {{ port.username }}</p>
+                                                <p><strong>IP:</strong> {{ port.ip }}</p>
+                                                <p><strong>Son Güncelleme:</strong> {{ port.last_update }}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Event Bilgileri -->
+                <div class="tab-pane fade" id="events" role="tabpanel">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Event Bilgileri</h5>
+                            <div class="scrollable-content">
+                                {% for event in computer.events %}
+                                <div class="card event-card">
+                                    <div class="card-body">
+                                        <div class="event-info">
+                                            <h6>{{ event.app_name }}</h6>
+                                            <p><strong>Event Tipi:</strong> {{ event.event_type }}</p>
+                                            <p><strong>Zaman:</strong> {{ event.timestamp }}</p>
+                                            <p><strong>Son Güncelleme:</strong> {{ event.last_update }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Defender Bilgileri -->
+                <div class="tab-pane fade" id="defender" role="tabpanel">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Defender Bilgileri</h5>
+                            <div class="scrollable-content">
+                                {% for defender in computer.defender %}
+                                <div class="card defender-card">
+                                    <div class="card-body">
+                                        <div class="defender-info">
+                                            <h6>Defender Olayı</h6>
+                                            <p><strong>Kaynak:</strong> {{ defender.source }}</p>
+                                            <p><strong>Event ID:</strong> {{ defender.event_id }}</p>
+                                            <p><strong>Açıklama:</strong> {{ defender.description }}</p>
+                                            <p><strong>Zaman:</strong> {{ defender.time }}</p>
+                                            <p><strong>Son Güncelleme:</strong> {{ defender.last_update }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html> 

@@ -1,0 +1,1622 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Durumu - İzleme Merkezi</title>
+    
+    <!-- Fontlar ve CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.css" rel="stylesheet">
+    
+    <style>
+:root {
+  --primary-color: #4e73df;
+  --secondary-color: #224abe;
+  --success-color: #1cc88a;
+  --info-color: #36b9cc;
+  --warning-color: #f6c23e;
+  --danger-color: #e74a3b;
+  --light-color: #f8f9fc;
+  --dark-color: #5a5c69;
+  --body-color: #f8f9fc;
+  --border-color: #e3e6f0;
+}
+
+/* Genel Stiller */
+body {
+  font-family: 'Nunito', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background-color: var(--body-color);
+  color: var(--dark-color);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.dashboard-container {
+  padding: 1.5rem;
+}
+
+/* Sidebar */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 225px;
+  height: 100vh;
+  background: linear-gradient(180deg, var(--primary-color) 10%, var(--secondary-color) 100%);
+  box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
+  z-index: 1000;
+  transition: all 0.3s;
+}
+
+.sidebar-brand {
+  height: 4.375rem;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 800;
+  padding: 1.5rem 1rem;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.05rem;
+  z-index: 1;
+}
+
+.sidebar-brand-icon i {
+  font-size: 2rem;
+}
+
+.sidebar-brand-text {
+  display: inline;
+  margin-left: 0.5rem;
+}
+
+.sidebar-divider {
+  margin: 0 1rem 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.nav-item {
+  position: relative;
+}
+
+.nav-link {
+  text-align: left;
+  padding: 0.75rem 1rem;
+  width: 100%;
+  font-weight: 700;
+  display: block;
+  transition: all 0.2s;
+}
+
+.sidebar .nav-link {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.sidebar .nav-link:hover {
+  color: #fff;
+}
+
+.sidebar .nav-link i {
+  margin-right: 0.25rem;
+  font-size: 0.85rem;
+}
+
+.sidebar .nav-link.active {
+  color: #fff;
+  font-weight: 700;
+}
+
+/* Cards */
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid var(--border-color);
+  border-radius: 0.35rem;
+  box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.1);
+  margin-bottom: 1.5rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0.5rem 2rem 0 rgba(58, 59, 69, 0.15);
+}
+
+.card-header {
+  padding: 0.75rem 1.25rem;
+  margin-bottom: 0;
+  background-color: #f8f9fc;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-header:first-child {
+  border-radius: calc(0.35rem - 1px) calc(0.35rem - 1px) 0 0;
+}
+
+.card-header .card-title {
+  margin-bottom: 0;
+  color: #4e73df;
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+
+.card-body {
+  flex: 1 1 auto;
+  min-height: 1px;
+  padding: 1.25rem;
+}
+
+/* Status Cards */
+.status-card {
+  border-left: 0.25rem solid;
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 0.35rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
+}
+
+.status-card-primary {
+  border-left-color: var(--primary-color);
+}
+
+.status-card-success {
+  border-left-color: var(--success-color);
+}
+
+.status-card-info {
+  border-left-color: var(--info-color);
+}
+
+.status-card-warning {
+  border-left-color: var(--warning-color);
+}
+
+.status-card-danger {
+  border-left-color: var(--danger-color);
+}
+
+.status-card-icon {
+  font-size: 2rem;
+  color: #dddfeb;
+}
+
+.status-card-title {
+  color: var(--dark-color);
+  margin-bottom: 0.5rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.status-card-value {
+  color: var(--dark-color);
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0;
+}
+
+/* Content Area */
+.content-wrapper {
+  margin-left: 225px;
+  padding: 1.5rem;
+  padding-top: 6rem;
+  min-height: 100vh;
+}
+
+/* Tables */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.data-table thead th {
+  background-color: #f8f9fc;
+  color: var(--dark-color);
+  padding: 0.75rem;
+  font-weight: 700;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.data-table tbody tr {
+  border-bottom: 1px solid var(--border-color);
+  transition: background-color 0.2s;
+}
+
+.data-table tbody tr:hover {
+  background-color: rgba(78, 115, 223, 0.05);
+}
+
+.data-table tbody td {
+  padding: 0.75rem;
+  vertical-align: middle;
+}
+
+/* Status Badges */
+.badge {
+  display: inline-block;
+  padding: 0.4em 0.8em;
+  font-size: 0.75em;
+  font-weight: 700;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 50rem;
+}
+
+.badge-success {
+  background-color: var(--success-color);
+}
+
+.badge-danger {
+  background-color: var(--danger-color);
+}
+
+/* Top Navigation */
+.topbar {
+  height: 4.375rem;
+  background-color: #fff;
+  box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 225px;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  padding: 0 1.5rem;
+  justify-content: space-between;
+}
+
+.topbar h1 {
+  margin: 0;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--dark-color);
+}
+
+.topbar-divider {
+  width: 0;
+  border-right: 1px solid var(--border-color);
+  height: calc(4.375rem - 2rem);
+  margin: auto 1rem;
+}
+
+.refresh-btn {
+  cursor: pointer;
+  font-size: 1.25rem;
+  color: var(--primary-color);
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  background: none;
+  border: none;
+}
+
+.refresh-btn:hover {
+  color: var(--secondary-color);
+}
+
+.refresh-btn i {
+  transition: transform 0.3s;
+}
+
+.refresh-btn:hover i {
+  transform: rotate(180deg);
+}
+
+/* Scrollable Content */
+.scrollable-content {
+  max-height: 600px;
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+/* Tabs */
+.nav-tabs .nav-link {
+  border: none;
+  color: var(--dark-color);
+  font-weight: 600;
+  padding: 0.75rem 1rem;
+  border-bottom: 2px solid transparent;
+}
+
+.nav-tabs .nav-link.active {
+  color: var(--primary-color);
+  background-color: transparent;
+  border-bottom: 2px solid var(--primary-color);
+}
+
+.nav-tabs .nav-link:hover {
+  border-color: transparent;
+  color: var(--primary-color);
+}
+
+.tab-pane {
+  padding: 1.5rem 0;
+}
+
+/* Status Timeline */
+.status-timeline {
+  list-style: none;
+  padding-left: 0;
+  position: relative;
+}
+
+.status-timeline:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 20px;
+  width: 2px;
+  background-color: var(--border-color);
+}
+
+.status-timeline-item {
+  position: relative;
+  padding-left: 50px;
+  margin-bottom: 1.5rem;
+}
+
+.status-timeline-marker {
+  position: absolute;
+  left: 10px;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  z-index: 10;
+}
+
+.status-timeline-marker.event {
+  background-color: var(--warning-color);
+}
+
+.status-timeline-marker.defender {
+  background-color: var(--danger-color);
+}
+
+.status-timeline-content {
+  background-color: white;
+  padding: 1rem;
+  border-radius: 0.35rem;
+  box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.1);
+  border-left: 3px solid var(--primary-color);
+}
+
+.status-timeline-content.event {
+  border-left-color: var(--warning-color);
+}
+
+.status-timeline-content.defender {
+  border-left-color: var(--danger-color);
+}
+
+.status-timeline-title {
+  margin-bottom: 0.25rem;
+  font-weight: 700;
+  color: var(--dark-color);
+}
+
+.status-timeline-time {
+  color: var(--dark-color);
+  font-size: 0.85rem;
+  margin-bottom: 0.25rem;
+}
+
+.status-timeline-description {
+  color: var(--dark-color);
+  margin-bottom: 0;
+}
+
+/* Alert Boxes */
+.alert-box {
+  padding: 1rem;
+  border-radius: 0.35rem;
+  margin-bottom: 1rem;
+  border-left: 4px solid;
+}
+
+.alert-box-title {
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.alert-box-content {
+  margin-bottom: 0;
+}
+
+.alert-box-info {
+  background-color: rgba(54, 185, 204, 0.1);
+  border-left-color: var(--info-color);
+}
+
+.alert-box-warning {
+  background-color: rgba(246, 194, 62, 0.1);
+  border-left-color: var(--warning-color);
+}
+
+.alert-box-danger {
+  background-color: rgba(231, 74, 59, 0.1);
+  border-left-color: var(--danger-color);
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .sidebar {
+    width: 90px;
+  }
+  
+  .sidebar-brand-text {
+    display: none;
+  }
+  
+  .sidebar .nav-link span {
+    display: none;
+  }
+  
+  .sidebar .nav-link i {
+    font-size: 1.2rem;
+    margin-right: 0;
+  }
+  
+  .content-wrapper {
+    margin-left: 90px;
+  }
+  
+  .topbar {
+    left: 90px;
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 0;
+  }
+  
+  .content-wrapper {
+    margin-left: 0;
+  }
+  
+  .topbar {
+    left: 0;
+  }
+}
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
+            <div class="sidebar-brand-icon">
+                <i class="fas fa-desktop text-white"></i>
+            </div>
+            <div class="sidebar-brand-text text-white mx-3">PC Monitor</div>
+        </a>
+        
+        <hr class="sidebar-divider">
+        
+        <div class="nav-item">
+            <a class="nav-link" href="/">
+                <i class="fas fa-fw fa-tachometer-alt"></i>
+                <span>Dashboard</span>
+            </a>
+        </div>
+        
+        <div class="nav-item">
+            <a class="nav-link active" href="/status">
+                <i class="fas fa-fw fa-server"></i>
+                <span>Sistem Durumu</span>
+            </a>
+        </div>
+        
+        <div class="nav-item">
+            <a class="nav-link" href="/security">
+                <i class="fas fa-fw fa-shield-alt"></i>
+                <span>Güvenlik</span>
+            </a>
+        </div>
+        
+        <div class="nav-item">
+            <a class="nav-link" href="javascript:void(0)" onclick="showNotImplemented()">
+                <i class="fas fa-fw fa-cog"></i>
+                <span>Ayarlar</span>
+            </a>
+        </div>
+        
+        <hr class="sidebar-divider">
+        
+        <div class="nav-item">
+            <a class="nav-link" href="javascript:void(0)" onclick="showNotImplemented()">
+                <i class="fas fa-fw fa-sign-out-alt"></i>
+                <span>Çıkış</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Top Navigation Bar -->
+    <div class="topbar">
+        <h1><i class="fas fa-server me-2"></i> Sistem Durumu</h1>
+        <div class="d-flex align-items-center">
+            <button id="refreshBtn" class="refresh-btn" title="Yenile">
+                <i class="fas fa-sync-alt"></i>
+            </button>
+            <div class="topbar-divider"></div>
+            <div class="d-flex align-items-center">
+                <div class="me-3 text-end">
+                    <div class="small text-gray-500">Son güncelleme</div>
+                    <div id="lastUpdateTime"></div>
+                </div>
+                <i class="fas fa-user-shield fa-lg text-primary"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- Content Wrapper -->
+    <div class="content-wrapper">
+        <div class="container-fluid">
+            <!-- Sistem Durumu Özeti -->
+            <div class="row mb-4">
+                <div class="col-xl-3 col-md-6 mb-4">
+                    <div class="status-card status-card-primary">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <div class="status-card-title">Toplam Sistem</div>
+                                <div class="status-card-value" id="totalCount">{{ total_computers }}</div>
+                            </div>
+                            <i class="fas fa-desktop fa-2x status-card-icon"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6 mb-4">
+                    <div class="status-card status-card-success">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <div class="status-card-title">Çevrimiçi</div>
+                                <div class="status-card-value" id="onlineCount">{{ online_computers }}</div>
+                            </div>
+                            <i class="fas fa-check-circle fa-2x status-card-icon"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6 mb-4">
+                    <div class="status-card status-card-danger">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <div class="status-card-title">Çevrimdışı</div>
+                                <div class="status-card-value" id="offlineCount">{{ offline_computers }}</div>
+                            </div>
+                            <i class="fas fa-power-off fa-2x status-card-icon"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6 mb-4">
+                    <div class="status-card status-card-warning">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <div class="status-card-title">Son 24 Saat Olayları</div>
+                                <div class="status-card-value" id="eventCount">{{ recent_events|length + defender_events|length }}</div>
+                            </div>
+                            <i class="fas fa-bell fa-2x status-card-icon"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ana İçerik Sekmeli Panel -->
+            <div class="card shadow mb-4">
+                <div class="card-header">
+                    <ul class="nav nav-tabs card-header-tabs" id="statusTabs" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="systems-tab" data-bs-toggle="tab" data-bs-target="#systems" type="button" role="tab" aria-controls="systems" aria-selected="true">
+                                <i class="fas fa-server me-1"></i>Sistemler
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="events-tab" data-bs-toggle="tab" data-bs-target="#events" type="button" role="tab" aria-controls="events" aria-selected="false">
+                                <i class="fas fa-history me-1"></i>Olaylar
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="defender-tab" data-bs-toggle="tab" data-bs-target="#defender" type="button" role="tab" aria-controls="defender" aria-selected="false">
+                                <i class="fas fa-shield-alt me-1"></i>Defender
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="ports-tab" data-bs-toggle="tab" data-bs-target="#ports" type="button" role="tab" aria-controls="ports" aria-selected="false">
+                                <i class="fas fa-plug me-1"></i>Açık Portlar
+                            </button>
+                        </li>
+                    </ul>
+                    <div>
+                        <input type="text" id="searchInput" class="form-control form-control-sm" placeholder="Ara...">
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="tab-content" id="statusTabsContent">
+                        <!-- Sistemler Sekmesi -->
+                        <div class="tab-pane fade show active" id="systems" role="tabpanel" aria-labelledby="systems-tab">
+                            <div class="row mb-4">
+                                <div class="col-xl-4 col-lg-5">
+                                    <div class="card mb-4">
+                                        <div class="card-header">
+                                            <h6 class="card-title mb-0">
+                                                <i class="fas fa-chart-pie me-2"></i>İşletim Sistemi Dağılımı
+                                            </h6>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="chart-pie">
+                                                <canvas id="osDistributionChart" height="300"></canvas>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-8 col-lg-7">
+                                    <div class="card mb-4">
+                                        <div class="card-header">
+                                            <h6 class="card-title mb-0">
+                                                <i class="fas fa-chart-area me-2"></i>Durum Geçmişi
+                                            </h6>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="chart-area">
+                                                <canvas id="statusHistoryChart" height="300"></canvas>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table table-hover data-table" id="systemsTable">
+                                    <thead>
+                                        <tr>
+                                            <th>Bilgisayar Adı</th>
+                                            <th>Durum</th>
+                                            <th>Son Güncelleme</th>
+                                            <th>İşletim Sistemi</th>
+                                            <th>İşlemci</th>
+                                            <th>RAM</th>
+                                            <th>Disk</th>
+                                            <th>İşlemler</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="systemsTableBody">
+                                        {% for computer in computers %}
+                                        <tr>
+                                            <td class="fw-bold">{{ computer.computer_name }}</td>
+                                            <td>
+                                                <span class="badge {% if computer.status == 'AÇIK' %}bg-success{% else %}bg-danger{% endif %}">
+                                                    {% if computer.status == 'AÇIK' %}Çevrimiçi{% else %}Çevrimdışı{% endif %}
+                                                </span>
+                                            </td>
+                                            <td>{{ computer.last_update }}</td>
+                                            <td>{{ computer.operating_system or 'Bilinmiyor' }}</td>
+                                            <td>{{ computer.processor or 'Bilinmiyor' }}</td>
+                                            <td>{{ computer.ram or 'Bilinmiyor' }}</td>
+                                            <td>{{ computer.disk_space or 'Bilinmiyor' }}</td>
+                                            <td>
+                                                <button class="btn btn-primary btn-sm" onclick="window.location.href='/get_system_details?computer_name={{ computer.computer_name }}'">
+                                                    <i class="fas fa-info-circle me-1"></i>Detaylar
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        
+                        <!-- Olaylar Sekmesi -->
+                        <div class="tab-pane fade" id="events" role="tabpanel" aria-labelledby="events-tab">
+                            <div class="alert-box alert-box-info mb-4">
+                                <div class="alert-box-title"><i class="fas fa-info-circle me-2"></i>Bilgi</div>
+                                <div class="alert-box-content">Son 24 saat içinde gerçekleşen sistem olayları burada listelenmektedir.</div>
+                            </div>
+                            
+                            {% if recent_events %}
+                            <ul class="status-timeline">
+                                {% for event in recent_events %}
+                                <li class="status-timeline-item">
+                                    <div class="status-timeline-marker event"></div>
+                                    <div class="status-timeline-content event">
+                                        <div class="status-timeline-title">{{ event.app_name }}</div>
+                                        <div class="status-timeline-time">
+                                            <i class="fas fa-clock me-1"></i>{{ event.timestamp }}
+                                            <span class="ms-2"><i class="fas fa-desktop me-1"></i>{{ event.computer_name }}</span>
+                                        </div>
+                                        <p class="status-timeline-description">{{ event.event_type }}</p>
+                                    </div>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                            {% else %}
+                            <div class="alert alert-info">
+                                <i class="fas fa-info-circle me-2"></i>Son 24 saat içinde herhangi bir olay kaydedilmemiş.
+                            </div>
+                            {% endif %}
+                        </div>
+
+                        <!-- Defender Sekmesi -->
+                        <div class="tab-pane fade" id="defender" role="tabpanel" aria-labelledby="defender-tab">
+                            <div class="alert-box alert-box-warning mb-4">
+                                <div class="alert-box-title"><i class="fas fa-shield-alt me-2"></i>Windows Defender Olayları</div>
+                                <div class="alert-box-content">Son 24 saat içinde Windows Defender tarafından kaydedilen güvenlik olayları burada listelenmektedir.</div>
+                            </div>
+                            
+                            {% if defender_events %}
+                            <ul class="status-timeline">
+                                {% for event in defender_events %}
+                                <li class="status-timeline-item">
+                                    <div class="status-timeline-marker defender"></div>
+                                    <div class="status-timeline-content defender">
+                                        <div class="status-timeline-title">Olay ID: {{ event.event_id }} <span class="badge bg-secondary ms-2">{{ event.source }}</span></div>
+                                        <div class="status-timeline-time">
+                                            <i class="fas fa-clock me-1"></i>{{ event.log_time }}
+                                            <span class="ms-2"><i class="fas fa-desktop me-1"></i>{{ event.computer_name }}</span>
+                                        </div>
+                                        <p class="status-timeline-description">{{ event.description }}</p>
+                                    </div>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                            {% else %}
+                            <div class="alert alert-info">
+                                <i class="fas fa-info-circle me-2"></i>Son 24 saat içinde herhangi bir Windows Defender olayı kaydedilmemiş.
+                            </div>
+                            {% endif %}
+                        </div>
+                        
+                        <!-- Açık Portlar Sekmesi -->
+                        <div class="tab-pane fade" id="ports" role="tabpanel" aria-labelledby="ports-tab">
+                            <div class="alert-box alert-box-danger mb-4">
+                                <div class="alert-box-title"><i class="fas fa-plug me-2"></i>Açık Portlar</div>
+                                <div class="alert-box-content">Son 12 saat içinde tespit edilen açık portlar burada listelenmektedir. Güvenlik açısından kritik portları kontrol ediniz.</div>
+                            </div>
+                            
+                            {% if open_ports %}
+                            <div class="table-responsive">
+                                <table class="table table-hover data-table" id="portsTable">
+                                    <thead>
+                                        <tr>
+                                            <th>Bilgisayar</th>
+                                            <th>Port</th>
+                                            <th>Süreç</th>
+                                            <th>PID</th>
+                                            <th>Kullanıcı</th>
+                                            <th>IP Adresi</th>
+                                            <th>Son Güncellenme</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for port in open_ports %}
+                                        <tr>
+                                            <td>{{ port.computer_name }}</td>
+                                            <td><span class="badge bg-primary">{{ port.port }}</span></td>
+                                            <td>{{ port.process_name }}</td>
+                                            <td>{{ port.pid }}</td>
+                                            <td>{{ port.username }}</td>
+                                            <td>{{ port.ip }}</td>
+                                            <td>{{ port.created_at }}</td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                            {% else %}
+                            <div class="alert alert-info">
+                                <i class="fas fa-info-circle me-2"></i>Son 12 saat içinde açık port verisi bulunmamaktadır.
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+    <script>
+        // Global değişkenler
+        var osDistributionChart;
+        var statusHistoryChart;
+        var searchTimeout;
+        const colors = [
+            '#5a78ff', '#20e3a0', '#35d0e6', '#ffb923', '#ff5c4b', '#4a4c5c',
+            '#8c56ff', '#ff56a8', '#ff9248', '#18d8c3', '#e83e8c', '#fd7e14'
+        ];
+        
+        // Sayfa yüklendiğinde
+        document.addEventListener('DOMContentLoaded', function() {
+            // Son güncelleme zamanını ayarla
+            updateLastUpdateTime();
+            
+            // Yenileme düğmesi
+            document.getElementById('refreshBtn').addEventListener('click', function() {
+                this.querySelector('i').classList.add('fa-spin');
+                
+                // AJAX ile verileri yenile - basit düzenlenmiş versiyon
+                fetch('/api/get_all_pc_status')
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        // İstatistikleri güncelle
+                        document.getElementById('totalCount').textContent = data.total_computers;
+                        document.getElementById('onlineCount').textContent = data.online_computers;
+                        document.getElementById('offlineCount').textContent = data.offline_computers;
+                        
+                        // Tabloyu güncelle
+                        updateSystemsTable(data.computers);
+                        
+                        // Son güncelleme zamanını göster
+                        updateLastUpdateTime();
+                        
+                        // Döndürme animasyonunu durdur
+                        setTimeout(() => {
+                            this.querySelector('i').classList.remove('fa-spin');
+                        }, 500);
+                    })
+                    .catch(error => {
+                        console.error('Veri alınamadı:', error);
+                        this.querySelector('i').classList.remove('fa-spin');
+                    });
+            });
+            
+            // Arama işlevselliği
+            const searchInput = document.getElementById('searchInput');
+            searchInput.addEventListener('keyup', function() {
+                clearTimeout(searchTimeout);
+                searchTimeout = setTimeout(() => {
+                    const searchVal = this.value.toLowerCase();
+                    const activeTabId = document.querySelector('.tab-pane.active').id;
+                    
+                    switch(activeTabId) {
+                        case 'systems':
+                            filterTable('systemsTable', searchVal);
+                            break;
+                        case 'ports':
+                            filterTable('portsTable', searchVal);
+                            break;
+                        case 'events':
+                            filterTimeline('.status-timeline-item', searchVal);
+                            break;
+                        case 'defender':
+                            filterTimeline('.status-timeline-item', searchVal);
+                            break;
+                    }
+                }, 300);
+            });
+            
+            // Sekme değişikliğini dinle
+            document.querySelectorAll('button[data-bs-toggle="tab"]').forEach(el => {
+                el.addEventListener('shown.bs.tab', event => {
+                    // Arama kutusunu temizle ve yeni sekmeye göre placeholder'ı güncelle
+                    searchInput.value = '';
+                    const tabId = event.target.getAttribute('aria-controls');
+                    
+                    switch(tabId) {
+                        case 'systems':
+                            searchInput.placeholder = 'Bilgisayar ara...';
+                            break;
+                        case 'events':
+                            searchInput.placeholder = 'Olay ara...';
+                            break;
+                        case 'defender':
+                            searchInput.placeholder = 'Defender olayı ara...';
+                            break;
+                        case 'ports':
+                            searchInput.placeholder = 'Port veya süreç ara...';
+                            break;
+                    }
+                });
+            });
+            
+            // Grafikleri çiz
+            initCharts();
+            
+            // Sayfa animasyonlarını başlat
+            animateElements();
+            
+            // Otomatik yenileme için 3 saniyede bir güncelle (5 saniye yerine)
+            setInterval(function() {
+                fetch('/api/get_all_pc_status')
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error(`HTTP error! Status: ${response.status}`);
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        // Console'a debug bilgileri yaz
+                        console.log("API yanıtı alındı:", data);
+                        console.log("Toplam bilgisayar:", data.total_computers);
+                        console.log("Çevrimiçi bilgisayar:", data.online_computers);
+                        console.log("Çevrimdışı bilgisayar:", data.offline_computers);
+                        
+                        // İstatistikleri güncelle
+                        document.getElementById('totalCount').textContent = data.total_computers;
+                        document.getElementById('onlineCount').textContent = data.online_computers;
+                        document.getElementById('offlineCount').textContent = data.offline_computers;
+                        
+                        // Tabloyu güncelle
+                        updateSystemsTable(data.computers);
+                        
+                        // Son güncelleme zamanını göster
+                        updateLastUpdateTime();
+                    })
+                    .catch(error => {
+                        console.error('Veri alınamadı:', error);
+                    });
+            }, 3000); // 3 saniyede bir güncelle
+        });
+        
+        // Animasyonları uygula
+        function animateElements() {
+            // Durum kartlarını animasyonla göster
+            const statusCards = document.querySelectorAll('.status-card');
+            statusCards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                
+                setTimeout(() => {
+                    card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                    
+                    // Rastgele kartlara parlama efekti ekle
+                    if (Math.random() > 0.5) {
+                        card.classList.add('highlight');
+                    }
+                }, 100 + (index * 100));
+            });
+            
+            // Tablo satırlarını animasyonla göster
+            const tableRows = document.querySelectorAll('tbody tr');
+            tableRows.forEach((row, index) => {
+                row.style.opacity = '0';
+                row.style.transform = 'translateY(10px)';
+                
+                setTimeout(() => {
+                    row.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+                    row.style.opacity = '1';
+                    row.style.transform = 'translateY(0)';
+                    
+                    // Satırları duruma göre renklendir
+                    const statusCell = row.querySelector('td:nth-child(2)');
+                    if (statusCell) {
+                        const statusBadge = statusCell.querySelector('.badge');
+                        if (statusBadge && statusBadge.classList.contains('bg-success')) {
+                            row.classList.add('table-success-subtle');
+                        } else if (statusBadge && statusBadge.classList.contains('bg-danger')) {
+                            row.classList.add('table-danger-subtle');
+                        }
+                    }
+                }, 150 + (index * 30));
+            });
+            
+            // Olay zaman çizelgesini animasyonla göster
+            const timelineItems = document.querySelectorAll('.status-timeline-item');
+            timelineItems.forEach((item, index) => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateX(-20px)';
+                
+                setTimeout(() => {
+                    item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                    item.style.opacity = '1';
+                    item.style.transform = 'translateX(0)';
+                }, 200 + (index * 80));
+            });
+            
+            // Sayaçları canlandır
+            const countElements = document.querySelectorAll('.status-card-value');
+            countElements.forEach(el => {
+                const finalValue = parseInt(el.textContent);
+                if (!isNaN(finalValue)) {
+                    animateCount(el, 0, finalValue, 1500);
+                }
+            });
+            
+            // Sekme animasyonları
+            document.querySelectorAll('.nav-link').forEach(tab => {
+                tab.addEventListener('mouseenter', function() {
+                    this.style.transition = 'transform 0.3s';
+                    this.style.transform = 'translateY(-3px)';
+                });
+                
+                tab.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+        }
+        
+        // Sayı animasyonu
+        function animateCount(element, start, end, duration) {
+            element.textContent = '0';
+            
+            let startTimestamp = null;
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                element.textContent = Math.floor(progress * (end - start) + start);
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                }
+            };
+            window.requestAnimationFrame(step);
+        }
+        
+        // Son güncelleme zamanını ayarla
+        function updateLastUpdateTime() {
+            const now = new Date();
+            document.getElementById('lastUpdateTime').textContent = now.toLocaleTimeString('tr-TR');
+        }
+        
+        // Tablolarda filtreleme yap
+        function filterTable(tableId, searchVal) {
+            const table = document.getElementById(tableId);
+            if (!table) return;
+            
+            const rows = table.querySelectorAll('tbody tr');
+            let visibleCount = 0;
+            
+            rows.forEach(row => {
+                const text = row.textContent.toLowerCase();
+                if (text.includes(searchVal)) {
+                    row.style.display = '';
+                    visibleCount++;
+                    
+                    // Eşleşen metni vurgula
+                    if (searchVal.trim() !== '') {
+                        highlightMatchText(row, searchVal);
+                    } else {
+                        // Vurguları temizle
+                        row.querySelectorAll('mark').forEach(mark => {
+                            const parent = mark.parentNode;
+                            parent.replaceChild(document.createTextNode(mark.textContent), mark);
+                            parent.normalize();
+                        });
+                    }
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+            
+            // Sonuç sayısını göster
+            const resultInfo = document.querySelector('.search-result-info');
+            if (resultInfo) {
+                if (searchVal.trim() !== '') {
+                    resultInfo.textContent = `${visibleCount} sonuç bulundu`;
+                    resultInfo.style.display = 'block';
+                } else {
+                    resultInfo.style.display = 'none';
+                }
+            }
+        }
+        
+        // Metni vurgula
+        function highlightMatchText(element, searchText) {
+            if (!searchText || searchText.trim() === '') return;
+            
+            const walker = document.createTreeWalker(element, NodeFilter.SHOW_TEXT, null, false);
+            const searchRegEx = new RegExp(`(${searchText.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+            
+            let node;
+            const nodesToReplace = [];
+            
+            // Önce tüm metin düğümlerini toplama
+            while (node = walker.nextNode()) {
+                if (node.nodeValue.trim() !== '' && node.parentNode.nodeName !== 'MARK') {
+                    nodesToReplace.push({
+                        node: node,
+                        content: node.nodeValue
+                    });
+                }
+            }
+            
+            // Sonra metin düğümlerini işleme
+            nodesToReplace.forEach(item => {
+                const highlightedContent = item.content.replace(searchRegEx, '<mark>$1</mark>');
+                if (highlightedContent !== item.content) {
+                    const tempSpan = document.createElement('span');
+                    tempSpan.innerHTML = highlightedContent;
+                    
+                    const fragment = document.createDocumentFragment();
+                    while (tempSpan.firstChild) {
+                        fragment.appendChild(tempSpan.firstChild);
+                    }
+                    
+                    item.node.parentNode.replaceChild(fragment, item.node);
+                }
+            });
+        }
+        
+        // Timeline'da filtreleme yap
+        function filterTimeline(selector, searchVal) {
+            const items = document.querySelectorAll(selector);
+            let visibleCount = 0;
+            
+            items.forEach(item => {
+                const text = item.textContent.toLowerCase();
+                if (text.includes(searchVal)) {
+                    item.style.display = '';
+                    visibleCount++;
+                    
+                    // Eşleşen metni vurgula
+                    if (searchVal.trim() !== '') {
+                        highlightMatchText(item, searchVal);
+                    } else {
+                        // Vurguları temizle
+                        item.querySelectorAll('mark').forEach(mark => {
+                            const parent = mark.parentNode;
+                            parent.replaceChild(document.createTextNode(mark.textContent), mark);
+                            parent.normalize();
+                        });
+                    }
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+            
+            // Sonuç sayısını göster
+            const resultInfo = document.querySelector('.search-result-info');
+            if (resultInfo) {
+                if (searchVal.trim() !== '') {
+                    resultInfo.textContent = `${visibleCount} sonuç bulundu`;
+                    resultInfo.style.display = 'block';
+                } else {
+                    resultInfo.style.display = 'none';
+                }
+            }
+        }
+        
+        // Grafikleri başlat
+        function initCharts() {
+            // İşletim sistemi dağılım grafiği
+            const osData = {
+                labels: [{% for os, count in os_distribution.items() %}'{{ os }}',{% endfor %}],
+                datasets: [{
+                    data: [{% for os, count in os_distribution.items() %}{{ count }},{% endfor %}],
+                    backgroundColor: colors.slice(0, Object.keys({{ os_distribution|tojson }}).length),
+                    hoverBackgroundColor: colors.slice(0, Object.keys({{ os_distribution|tojson }}).length),
+                    borderWidth: 2,
+                    borderColor: '#ffffff'
+                }]
+            };
+            
+            const ctxPie = document.getElementById('osDistributionChart').getContext('2d');
+            osDistributionChart = new Chart(ctxPie, {
+                type: 'doughnut',
+                data: osData,
+                options: {
+                    animation: {
+                        animateScale: true,
+                        animateRotate: true
+                    },
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: true,
+                            position: 'bottom',
+                            labels: {
+                                color: '#4a4c5c',
+                                font: {
+                                    weight: 'bold'
+                                },
+                                padding: 15
+                            }
+                        }
+                    },
+                    cutout: '70%'
+                }
+            });
+            
+            // Durum geçmişi çizgi grafiği
+            const statusData = {
+                labels: Array(12).fill(0).map((_, i) => `${i*2} saat önce`).reverse(),
+                datasets: [{
+                    label: 'Çevrimiçi Sistemler',
+                    data: [
+                        // Simüle edilmiş veriler - gerçek uygulamada veritabanından alınır
+                        Math.floor(Math.random() * {{ online_computers }} + {{ online_computers }} - 2),
+                        Math.floor(Math.random() * {{ online_computers }} + {{ online_computers }} - 3),
+                        Math.floor(Math.random() * {{ online_computers }} + {{ online_computers }} - 2),
+                        Math.floor(Math.random() * {{ online_computers }} + {{ online_computers }} - 1),
+                        Math.floor(Math.random() * {{ online_computers }} + {{ online_computers }} - 2),
+                        Math.floor(Math.random() * {{ online_computers }} + {{ online_computers }} - 1),
+                        Math.floor(Math.random() * {{ online_computers }} + {{ online_computers }}),
+                        Math.floor(Math.random() * {{ online_computers }} + {{ online_computers }} - 1),
+                        Math.floor(Math.random() * {{ online_computers }} + {{ online_computers }} - 2),
+                        Math.floor(Math.random() * {{ online_computers }} + {{ online_computers }} - 1),
+                        Math.floor(Math.random() * {{ online_computers }} + {{ online_computers }}),
+                        {{ online_computers }}
+                    ],
+                    borderColor: '#20e3a0',
+                    backgroundColor: 'rgba(32, 227, 160, 0.2)',
+                    borderWidth: 3,
+                    tension: 0.4,
+                    fill: true,
+                    pointBackgroundColor: '#ffffff',
+                    pointBorderColor: '#20e3a0',
+                    pointBorderWidth: 2,
+                    pointRadius: 5,
+                    pointHoverRadius: 8,
+                    pointHoverBackgroundColor: '#20e3a0',
+                    pointHoverBorderColor: '#ffffff'
+                }]
+            };
+            
+            const ctxLine = document.getElementById('statusHistoryChart').getContext('2d');
+            statusHistoryChart = new Chart(ctxLine, {
+                type: 'line',
+                data: statusData,
+                options: {
+                    animation: {
+                        delay: 500,
+                        duration: 2000,
+                        easing: 'easeOutQuart'
+                    },
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: true,
+                            position: 'top',
+                            labels: {
+                                color: '#4a4c5c',
+                                font: {
+                                    weight: 'bold'
+                                },
+                                padding: 15
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            grid: {
+                                display: false
+                            },
+                            ticks: {
+                                color: '#4a4c5c'
+                            }
+                        },
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                precision: 0,
+                                color: '#4a4c5c'
+                            },
+                            grid: {
+                                color: 'rgba(74, 76, 92, 0.1)'
+                            }
+                        }
+                    }
+                }
+            });
+            
+            // Animasyonlu gösterim için görünümü gizle ve sonra göster
+            document.querySelectorAll('.chart-area, .chart-pie').forEach(chart => {
+                chart.style.opacity = 0;
+                setTimeout(() => {
+                    chart.style.transition = 'opacity 1s ease';
+                    chart.style.opacity = 1;
+                }, 300);
+            });
+        }
+        
+        // Sistemler tablosunu güncelle
+        function updateSystemsTable(computers) {
+            const tableBody = document.getElementById('systemsTableBody');
+            if (!tableBody) return;
+            
+            console.log("Bilgisayar tablosu güncelleniyor, toplam:", computers.length);
+            
+            // Tabloyu temizle
+            tableBody.innerHTML = '';
+            
+            // Yeni satırları ekle
+            computers.forEach(computer => {
+                const row = document.createElement('tr');
+                
+                // Debug - konsola bilgisayar durumunu yaz
+                console.log(`Bilgisayar: ${computer.computer_name}, Durum: ${computer.status}`);
+                
+                // Status sınıfı - AÇIK veya Açık durumlarının ikisini de kontrol et
+                const isOnline = computer.status === 'AÇIK' || computer.status === 'Açık';
+                const statusClass = isOnline ? 'bg-success' : 'bg-danger';
+                const statusText = isOnline ? 'Çevrimiçi' : 'Çevrimdışı';
+                
+                row.innerHTML = `
+                    <td class="fw-bold">${computer.computer_name}</td>
+                    <td>
+                        <span class="badge ${statusClass}">
+                            ${statusText}
+                        </span>
+                    </td>
+                    <td>${computer.last_update || 'Bilinmiyor'}</td>
+                    <td>${computer.operating_system || 'Bilinmiyor'}</td>
+                    <td>${computer.processor || 'Bilinmiyor'}</td>
+                    <td>${computer.ram || 'Bilinmiyor'}</td>
+                    <td>${computer.disk_space || 'Bilinmiyor'}</td>
+                    <td>
+                        <button class="btn btn-primary btn-sm" onclick="window.location.href='/get_system_details?computer_name=${computer.computer_name}'">
+                            <i class="fas fa-info-circle me-1"></i>Detaylar
+                        </button>
+                    </td>
+                `;
+                
+                tableBody.appendChild(row);
+            });
+            
+            // Satır animasyonlarını uygula
+            const tableRows = tableBody.querySelectorAll('tr');
+            tableRows.forEach((row, index) => {
+                row.style.opacity = '0';
+                row.style.transform = 'translateY(10px)';
+                
+                setTimeout(() => {
+                    row.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+                    row.style.opacity = '1';
+                    row.style.transform = 'translateY(0)';
+                    
+                    // Satırları duruma göre renklendir
+                    const statusCell = row.querySelector('td:nth-child(2)');
+                    if (statusCell) {
+                        const statusBadge = statusCell.querySelector('.badge');
+                        if (statusBadge && statusBadge.classList.contains('bg-success')) {
+                            row.classList.add('table-success-subtle');
+                        } else if (statusBadge && statusBadge.classList.contains('bg-danger')) {
+                            row.classList.add('table-danger-subtle');
+                        }
+                    }
+                }, 50 + (index * 30));
+            });
+        }
+        
+        // Henüz tamamlanmamış özellikler için bildirim göster
+        function showNotImplemented() {
+            const alertHtml = `
+                <div class="alert alert-info alert-dismissible fade show position-fixed top-0 start-50 translate-middle-x mt-5" style="z-index: 9999;" role="alert">
+                    <i class="fas fa-info-circle me-2"></i>
+                    Bu özellik henüz tamamlanmadı. Yakında kullanıma sunulacaktır.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Kapat"></button>
+                </div>
+            `;
+            
+            // Mevcut uyarıları temizle
+            document.querySelectorAll('.alert-info.position-fixed').forEach(el => el.remove());
+            
+            // Yeni uyarıyı ekle
+            const alertElement = document.createElement('div');
+            alertElement.innerHTML = alertHtml;
+            document.body.appendChild(alertElement.firstElementChild);
+            
+            // 3 saniye sonra otomatik kapat
+            setTimeout(() => {
+                const alert = document.querySelector('.alert-info.position-fixed');
+                if (alert) {
+                    const bsAlert = new bootstrap.Alert(alert);
+                    bsAlert.close();
+                }
+            }, 3000);
+        }
+        
+        // Bildirim gösterme fonksiyonu
+        function showNotification(message, type) {
+            const alertClass = type === 'success' ? 'alert-success' : 
+                            type === 'danger' ? 'alert-danger' : 'alert-info';
+            
+            const alertHtml = `
+                <div class="alert ${alertClass} alert-dismissible fade show position-fixed top-0 start-50 translate-middle-x mt-5" style="z-index: 9999;" role="alert">
+                    <i class="fas ${type === 'success' ? 'fa-check-circle' : type === 'danger' ? 'fa-exclamation-triangle' : 'fa-info-circle'} me-2"></i>
+                    ${message}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Kapat"></button>
+                </div>
+            `;
+            
+            // Mevcut uyarıları temizle
+            document.querySelectorAll('.alert.position-fixed').forEach(el => el.remove());
+            
+            // Yeni uyarıyı ekle
+            const alertElement = document.createElement('div');
+            alertElement.innerHTML = alertHtml;
+            document.body.appendChild(alertElement.firstElementChild);
+            
+            // 5 saniye sonra otomatik kapat
+            setTimeout(() => {
+                const alert = document.querySelector('.alert.position-fixed');
+                if (alert) {
+                    const bsAlert = new bootstrap.Alert(alert);
+                    bsAlert.close();
+                }
+            }, 5000);
+        }
+        
+        // İlave CSS stilleri
+        const additionalStyles = document.createElement('style');
+        additionalStyles.textContent = `
+            /* Vurgulama stilleri */
+            mark {
+                background-color: rgba(255, 185, 35, 0.4);
+                color: inherit;
+                padding: 0 2px;
+                border-radius: 3px;
+            }
+            
+            /* Animasyon stilleri */
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(20px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+            
+            @keyframes scaleIn {
+                from {
+                    opacity: 0;
+                    transform: scale(0.9);
+                }
+                to {
+                    opacity: 1;
+                    transform: scale(1);
+                }
+            }
+            
+            .fade-in {
+                animation: fadeInUp 0.5s ease forwards;
+            }
+            
+            .scale-in {
+                animation: scaleIn 0.5s ease forwards;
+            }
+            
+            /* Tablo stilleri */
+            .table-success-subtle {
+                background-color: rgba(32, 227, 160, 0.1);
+                border-left: 3px solid var(--success-color);
+            }
+            
+            .table-danger-subtle {
+                background-color: rgba(255, 92, 75, 0.1);
+                border-left: 3px solid var(--danger-color);
+            }
+            
+            /* Arama sonuç bilgisi */
+            .search-result-info {
+                display: none;
+                font-size: 0.85rem;
+                color: var(--primary-color);
+                margin-top: 0.5rem;
+                font-weight: bold;
+            }
+            
+            /* Parlama efekti */
+            .highlight-text {
+                position: relative;
+                display: inline-block;
+                color: var(--primary-color);
+                font-weight: bold;
+            }
+            
+            .highlight-text::after {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(90deg, 
+                    rgba(255,255,255,0) 0%, 
+                    rgba(255,255,255,0.8) 50%, 
+                    rgba(255,255,255,0) 100%);
+                transform: translateX(-100%);
+                animation: shimmer 2s infinite;
+            }
+            
+            @keyframes shimmer {
+                100% {
+                    transform: translateX(100%);
+                }
+            }
+            
+            /* Tablo başlık stilleri */
+            .data-table thead th {
+                position: relative;
+                overflow: hidden;
+            }
+            
+            .data-table thead th:after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 3px;
+                background: linear-gradient(90deg, var(--primary-color), var(--purple-color));
+                transform: scaleX(0);
+                transition: transform 0.3s;
+                transform-origin: left;
+            }
+            
+            .data-table thead th:hover:after {
+                transform: scaleX(1);
+            }
+            
+            /* Badge hover stilleri */
+            .badge {
+                transition: all 0.3s;
+            }
+            
+            .badge:hover {
+                transform: scale(1.1);
+                box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+            }
+            
+            /* Tab hover stilleri */
+            .nav-tabs .nav-link {
+                position: relative;
+                overflow: hidden;
+            }
+            
+            .nav-tabs .nav-link::before {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(to bottom, transparent 90%, var(--primary-color) 90%);
+                opacity: 0;
+                transition: opacity 0.3s;
+            }
+            
+            .nav-tabs .nav-link:hover::before {
+                opacity: 0.1;
+            }
+            
+            /* Sekme içeriği animasyonu */
+            .tab-pane {
+                opacity: 0;
+                transform: translateY(10px);
+                transition: opacity 0.5s, transform 0.5s;
+            }
+            
+            .tab-pane.show {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        `;
+        document.head.appendChild(additionalStyles);
+        
+        // Arama sonuçları için bilgi alanı ekle
+        const searchContainer = document.querySelector('.card-header div');
+        if (searchContainer) {
+            const resultInfo = document.createElement('div');
+            resultInfo.className = 'search-result-info';
+            searchContainer.appendChild(resultInfo);
+        }
+    </script>
+</body>
+</html> 

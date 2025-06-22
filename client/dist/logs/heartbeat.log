@@ -1,0 +1,530 @@
+2025-06-06 00:15:00,379 - INFO - Heartbeat client baþlatýlýyor - Sunucu: 192.168.1.33:5002
+2025-06-06 00:15:00,435 - INFO - Heartbeat client baþlatýlýyor... (Bilgisayar adý: DESKTOP-CJ37T16)
+2025-06-06 00:15:00,435 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 1)
+2025-06-06 00:15:00,437 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:15:02,481 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:15:12,492 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 2)
+2025-06-06 00:15:12,492 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:15:14,546 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:15:24,548 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 3)
+2025-06-06 00:15:24,548 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:15:26,596 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:15:31,067 - INFO - Heartbeat client baþlatýlýyor - Sunucu: 192.168.1.33:5002
+2025-06-06 00:15:31,121 - INFO - Heartbeat client baþlatýlýyor... (Bilgisayar adý: DESKTOP-CJ37T16)
+2025-06-06 00:15:31,121 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 1)
+2025-06-06 00:15:31,122 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:15:33,162 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:15:36,598 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 4)
+2025-06-06 00:15:36,598 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:15:38,650 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:15:42,468 - INFO - Heartbeat client baþlatýlýyor - Sunucu: 192.168.1.33:5002
+2025-06-06 00:15:42,522 - INFO - Heartbeat client baþlatýlýyor... (Bilgisayar adý: DESKTOP-CJ37T16)
+2025-06-06 00:15:42,522 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 1)
+2025-06-06 00:15:42,523 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:15:43,174 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 2)
+2025-06-06 00:15:43,174 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:15:44,590 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:15:45,226 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:15:48,660 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 5)
+2025-06-06 00:15:48,660 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:15:50,706 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:15:54,600 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 2)
+2025-06-06 00:15:54,600 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:15:55,232 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 3)
+2025-06-06 00:15:55,232 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:15:56,636 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:15:57,273 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:16:00,103 - INFO - Heartbeat client baþlatýlýyor - Sunucu: 192.168.1.33:5002
+2025-06-06 00:16:00,153 - INFO - Heartbeat client baþlatýlýyor... (Bilgisayar adý: DESKTOP-CJ37T16)
+2025-06-06 00:16:00,154 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 1)
+2025-06-06 00:16:00,155 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:16:00,710 - WARNING - Maksimum yeniden baðlanma denemesi aþýldý (5). Daha uzun süre bekleniyor...
+2025-06-06 00:16:02,186 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:16:06,644 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 3)
+2025-06-06 00:16:06,644 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:16:07,285 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 4)
+2025-06-06 00:16:07,285 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:16:08,693 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:16:09,339 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:16:12,188 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 2)
+2025-06-06 00:16:12,188 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:16:14,218 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:16:18,706 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 4)
+2025-06-06 00:16:18,706 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:16:19,351 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 5)
+2025-06-06 00:16:19,351 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:16:20,725 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 1)
+2025-06-06 00:16:20,726 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:16:20,757 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:16:21,392 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:16:22,782 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:16:24,225 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 3)
+2025-06-06 00:16:24,225 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:16:26,266 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:16:30,759 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 5)
+2025-06-06 00:16:30,759 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:16:31,394 - WARNING - Maksimum yeniden baðlanma denemesi aþýldý (5). Daha uzun süre bekleniyor...
+2025-06-06 00:16:32,783 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 2)
+2025-06-06 00:16:32,783 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:16:32,798 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:16:34,816 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:16:36,272 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 4)
+2025-06-06 00:16:36,272 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:16:38,315 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:16:42,801 - WARNING - Maksimum yeniden baðlanma denemesi aþýldý (5). Daha uzun süre bekleniyor...
+2025-06-06 00:16:44,831 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 3)
+2025-06-06 00:16:44,831 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:16:46,868 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:16:48,319 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 5)
+2025-06-06 00:16:48,319 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:16:50,355 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:16:51,408 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 1)
+2025-06-06 00:16:51,408 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:16:53,473 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:16:56,882 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 4)
+2025-06-06 00:16:56,882 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:16:58,928 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:17:00,356 - WARNING - Maksimum yeniden baðlanma denemesi aþýldý (5). Daha uzun süre bekleniyor...
+2025-06-06 00:17:02,811 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 1)
+2025-06-06 00:17:02,811 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:17:03,477 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 2)
+2025-06-06 00:17:03,478 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:17:04,857 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:17:05,523 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:17:08,936 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 5)
+2025-06-06 00:17:08,936 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:17:10,986 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:17:14,861 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 2)
+2025-06-06 00:17:14,861 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:17:15,531 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 3)
+2025-06-06 00:17:15,531 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:17:16,906 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:17:17,557 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:17:20,357 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 1)
+2025-06-06 00:17:20,357 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:17:20,991 - WARNING - Maksimum yeniden baðlanma denemesi aþýldý (5). Daha uzun süre bekleniyor...
+2025-06-06 00:17:22,405 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:17:26,913 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 3)
+2025-06-06 00:17:26,914 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:17:27,566 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 4)
+2025-06-06 00:17:27,566 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:17:28,953 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:17:29,601 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:17:32,406 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 2)
+2025-06-06 00:17:32,406 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:17:34,452 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:17:38,956 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 4)
+2025-06-06 00:17:38,956 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:17:39,615 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 5)
+2025-06-06 00:17:39,615 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:17:40,995 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:17:40,995 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 1)
+2025-06-06 00:17:40,995 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:17:41,646 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:17:43,042 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:17:44,465 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 3)
+2025-06-06 00:17:44,465 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:17:46,495 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:17:51,001 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 5)
+2025-06-06 00:17:51,001 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:17:51,648 - WARNING - Maksimum yeniden baðlanma denemesi aþýldý (5). Daha uzun süre bekleniyor...
+2025-06-06 00:17:53,038 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:17:53,053 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 2)
+2025-06-06 00:17:53,053 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:17:55,117 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:17:56,508 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 4)
+2025-06-06 00:17:56,508 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:17:58,552 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:18:03,044 - WARNING - Maksimum yeniden baðlanma denemesi aþýldý (5). Daha uzun süre bekleniyor...
+2025-06-06 00:18:05,121 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 3)
+2025-06-06 00:18:05,121 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:18:07,170 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:18:08,561 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 5)
+2025-06-06 00:18:08,561 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:18:10,603 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:18:11,656 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 1)
+2025-06-06 00:18:11,656 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:18:13,707 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:18:17,175 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 4)
+2025-06-06 00:18:17,175 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:18:19,208 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:18:20,613 - WARNING - Maksimum yeniden baðlanma denemesi aþýldý (5). Daha uzun süre bekleniyor...
+2025-06-06 00:18:23,047 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 1)
+2025-06-06 00:18:23,047 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:18:23,713 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 2)
+2025-06-06 00:18:23,714 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:18:25,109 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:18:25,777 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:18:29,215 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 5)
+2025-06-06 00:18:29,215 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:18:31,255 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:18:35,123 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 2)
+2025-06-06 00:18:35,123 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:18:35,788 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 3)
+2025-06-06 00:18:35,789 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:18:37,181 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:18:37,826 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:18:40,623 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 1)
+2025-06-06 00:18:40,623 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:18:41,260 - WARNING - Maksimum yeniden baðlanma denemesi aþýldý (5). Daha uzun süre bekleniyor...
+2025-06-06 00:18:42,669 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:18:47,195 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 3)
+2025-06-06 00:18:47,195 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:18:47,828 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 4)
+2025-06-06 00:18:47,828 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:18:49,254 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:18:49,878 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:18:52,684 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 2)
+2025-06-06 00:18:52,684 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:18:54,729 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:18:59,267 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 4)
+2025-06-06 00:18:59,267 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:18:59,889 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 5)
+2025-06-06 00:18:59,889 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:19:01,261 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 1)
+2025-06-06 00:19:01,261 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:19:01,308 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:19:01,929 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:19:03,324 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:19:04,733 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 3)
+2025-06-06 00:19:04,733 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:19:06,797 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:19:11,313 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 5)
+2025-06-06 00:19:11,313 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:19:11,939 - WARNING - Maksimum yeniden baðlanma denemesi aþýldý (5). Daha uzun süre bekleniyor...
+2025-06-06 00:19:13,330 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 2)
+2025-06-06 00:19:13,330 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:19:13,361 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:19:15,342 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:19:16,801 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 4)
+2025-06-06 00:19:16,801 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:19:18,824 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:19:23,372 - WARNING - Maksimum yeniden baðlanma denemesi aþýldý (5). Daha uzun süre bekleniyor...
+2025-06-06 00:19:25,345 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 3)
+2025-06-06 00:19:25,345 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:19:27,389 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:19:28,828 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 5)
+2025-06-06 00:19:28,828 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:19:30,885 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:19:31,947 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 1)
+2025-06-06 00:19:31,947 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:19:34,005 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:19:37,403 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 4)
+2025-06-06 00:19:37,403 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:19:39,464 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:19:40,900 - WARNING - Maksimum yeniden baðlanma denemesi aþýldý (5). Daha uzun süre bekleniyor...
+2025-06-06 00:19:43,376 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 1)
+2025-06-06 00:19:43,376 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:19:44,008 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 2)
+2025-06-06 00:19:44,008 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:19:45,414 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:19:46,049 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:19:49,473 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 5)
+2025-06-06 00:19:49,473 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:19:51,515 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:19:55,420 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 2)
+2025-06-06 00:19:55,420 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:19:56,053 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 3)
+2025-06-06 00:19:56,053 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:19:57,464 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:19:58,100 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:20:00,902 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 1)
+2025-06-06 00:20:00,902 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:20:01,528 - WARNING - Maksimum yeniden baðlanma denemesi aþýldý (5). Daha uzun süre bekleniyor...
+2025-06-06 00:20:02,939 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:20:07,471 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 3)
+2025-06-06 00:20:07,471 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:20:08,103 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 4)
+2025-06-06 00:20:08,103 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:20:09,507 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:20:10,135 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:20:12,943 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 2)
+2025-06-06 00:20:12,943 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:20:14,994 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:20:19,514 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 4)
+2025-06-06 00:20:19,514 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:20:20,136 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 5)
+2025-06-06 00:20:20,136 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:20:21,529 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 1)
+2025-06-06 00:20:21,529 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:20:21,559 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:20:22,177 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:20:23,581 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:20:24,996 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 3)
+2025-06-06 00:20:24,996 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:20:27,044 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:20:31,560 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 5)
+2025-06-06 00:20:31,560 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:20:32,190 - WARNING - Maksimum yeniden baðlanma denemesi aþýldý (5). Daha uzun süre bekleniyor...
+2025-06-06 00:20:33,592 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 2)
+2025-06-06 00:20:33,592 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:20:33,592 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:20:35,635 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:20:37,048 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 4)
+2025-06-06 00:20:37,048 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:20:39,088 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:20:43,600 - WARNING - Maksimum yeniden baðlanma denemesi aþýldý (5). Daha uzun süre bekleniyor...
+2025-06-06 00:20:45,649 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 3)
+2025-06-06 00:20:45,649 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:20:47,688 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:20:49,103 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 5)
+2025-06-06 00:20:49,103 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:20:51,146 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:20:52,203 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 1)
+2025-06-06 00:20:52,203 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:20:54,267 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:20:57,699 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 4)
+2025-06-06 00:20:57,699 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:20:59,746 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:21:01,149 - WARNING - Maksimum yeniden baðlanma denemesi aþýldý (5). Daha uzun süre bekleniyor...
+2025-06-06 00:21:03,605 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 1)
+2025-06-06 00:21:03,605 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:21:04,281 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 2)
+2025-06-06 00:21:04,281 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:21:05,660 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:21:06,326 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:21:09,758 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 5)
+2025-06-06 00:21:09,758 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:21:11,805 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:21:15,661 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 2)
+2025-06-06 00:21:15,661 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:21:16,341 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 3)
+2025-06-06 00:21:16,341 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:21:17,699 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:21:18,396 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:21:21,158 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 1)
+2025-06-06 00:21:21,158 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:21:21,806 - WARNING - Maksimum yeniden baðlanma denemesi aþýldý (5). Daha uzun süre bekleniyor...
+2025-06-06 00:21:23,202 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:21:27,702 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 3)
+2025-06-06 00:21:27,702 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:21:28,399 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 4)
+2025-06-06 00:21:28,399 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:21:29,757 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:21:30,442 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:21:33,212 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 2)
+2025-06-06 00:21:33,212 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:21:35,261 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:21:39,758 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 4)
+2025-06-06 00:21:39,758 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:21:40,445 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 5)
+2025-06-06 00:21:40,445 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:21:41,807 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:21:41,822 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 1)
+2025-06-06 00:21:41,822 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:21:42,490 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:21:43,872 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:21:45,263 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 3)
+2025-06-06 00:21:45,263 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:21:47,311 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:21:51,811 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 5)
+2025-06-06 00:21:51,811 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:21:52,493 - WARNING - Maksimum yeniden baðlanma denemesi aþýldý (5). Daha uzun süre bekleniyor...
+2025-06-06 00:21:53,852 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:21:53,883 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 2)
+2025-06-06 00:21:53,883 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:21:55,930 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:21:57,312 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 4)
+2025-06-06 00:21:57,312 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:21:59,355 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:22:03,856 - WARNING - Maksimum yeniden baðlanma denemesi aþýldý (5). Daha uzun süre bekleniyor...
+2025-06-06 00:22:05,933 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 3)
+2025-06-06 00:22:05,933 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:22:07,960 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:22:09,369 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 5)
+2025-06-06 00:22:09,369 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:22:11,414 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:22:12,500 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 1)
+2025-06-06 00:22:12,500 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:22:14,541 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:22:17,970 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 4)
+2025-06-06 00:22:17,970 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:22:20,014 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:22:21,424 - WARNING - Maksimum yeniden baðlanma denemesi aþýldý (5). Daha uzun süre bekleniyor...
+2025-06-06 00:22:23,868 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 1)
+2025-06-06 00:22:23,868 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:22:24,543 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 2)
+2025-06-06 00:22:24,543 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:22:25,925 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:22:26,567 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:22:30,028 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 5)
+2025-06-06 00:22:30,028 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:22:32,064 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:22:35,936 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 2)
+2025-06-06 00:22:35,936 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:22:36,570 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 3)
+2025-06-06 00:22:36,570 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:22:37,968 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:22:38,618 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:22:41,428 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 1)
+2025-06-06 00:22:41,428 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:22:42,075 - WARNING - Maksimum yeniden baðlanma denemesi aþýldý (5). Daha uzun süre bekleniyor...
+2025-06-06 00:22:43,469 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:22:47,979 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 3)
+2025-06-06 00:22:47,979 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:22:50,022 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:22:53,482 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 2)
+2025-06-06 00:22:53,482 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:22:55,518 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:23:00,034 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 4)
+2025-06-06 00:23:00,034 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:23:02,068 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:23:02,084 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 1)
+2025-06-06 00:23:02,084 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:23:04,148 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:23:05,530 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 3)
+2025-06-06 00:23:05,530 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:23:07,592 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:23:12,072 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 5)
+2025-06-06 00:23:12,072 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:23:14,108 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:23:14,154 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 2)
+2025-06-06 00:23:14,154 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:23:16,203 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:23:17,601 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 4)
+2025-06-06 00:23:17,601 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:23:19,661 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:23:24,112 - WARNING - Maksimum yeniden baðlanma denemesi aþýldý (5). Daha uzun süre bekleniyor...
+2025-06-06 00:23:26,204 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 3)
+2025-06-06 00:23:26,204 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:23:28,250 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:23:29,672 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 5)
+2025-06-06 00:23:29,672 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:23:31,717 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:23:38,258 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 4)
+2025-06-06 00:23:38,258 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:23:40,322 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:23:41,732 - WARNING - Maksimum yeniden baðlanma denemesi aþýldý (5). Daha uzun süre bekleniyor...
+2025-06-06 00:23:44,121 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 1)
+2025-06-06 00:23:44,121 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:23:46,167 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:23:50,324 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 5)
+2025-06-06 00:23:50,324 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:23:52,364 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:23:56,178 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 2)
+2025-06-06 00:23:56,178 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:23:58,220 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:24:01,744 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 1)
+2025-06-06 00:24:01,744 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:24:02,374 - WARNING - Maksimum yeniden baðlanma denemesi aþýldý (5). Daha uzun süre bekleniyor...
+2025-06-06 00:24:03,781 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:24:08,231 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 3)
+2025-06-06 00:24:08,231 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:24:10,240 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:24:13,795 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 2)
+2025-06-06 00:24:13,795 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:24:15,849 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:24:20,252 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 4)
+2025-06-06 00:24:20,252 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:24:22,299 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:24:22,377 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 1)
+2025-06-06 00:24:22,377 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:24:24,421 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:24:25,865 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 3)
+2025-06-06 00:24:25,865 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:24:27,906 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:24:32,312 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 5)
+2025-06-06 00:24:32,312 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:24:34,358 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:24:34,435 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 2)
+2025-06-06 00:24:34,435 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:24:36,485 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:24:37,913 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 4)
+2025-06-06 00:24:37,913 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:24:39,955 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:24:44,371 - WARNING - Maksimum yeniden baðlanma denemesi aþýldý (5). Daha uzun süre bekleniyor...
+2025-06-06 00:24:46,490 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 3)
+2025-06-06 00:24:46,490 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:24:48,523 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:24:49,957 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 5)
+2025-06-06 00:24:49,957 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:24:52,001 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:24:58,531 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 4)
+2025-06-06 00:24:58,531 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:25:00,576 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:25:02,014 - WARNING - Maksimum yeniden baðlanma denemesi aþýldý (5). Daha uzun süre bekleniyor...
+2025-06-06 00:25:04,383 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 1)
+2025-06-06 00:25:04,383 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:25:06,432 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:25:10,584 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 5)
+2025-06-06 00:25:10,584 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:25:12,639 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:25:16,447 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 2)
+2025-06-06 00:25:16,447 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:25:18,510 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:25:22,018 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 1)
+2025-06-06 00:25:22,018 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:25:22,653 - WARNING - Maksimum yeniden baðlanma denemesi aþýldý (5). Daha uzun süre bekleniyor...
+2025-06-06 00:25:24,061 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:25:28,512 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 3)
+2025-06-06 00:25:28,512 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:25:30,548 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:25:34,069 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 2)
+2025-06-06 00:25:34,069 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:25:36,106 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:25:40,553 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 4)
+2025-06-06 00:25:40,553 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:25:42,598 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:25:42,660 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 1)
+2025-06-06 00:25:42,660 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:25:44,708 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:25:46,114 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 3)
+2025-06-06 00:25:46,114 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:25:48,182 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:25:52,631 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 5)
+2025-06-06 00:25:52,631 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:25:54,720 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 2)
+2025-06-06 00:25:54,720 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:25:54,784 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:25:57,077 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:25:58,193 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 4)
+2025-06-06 00:25:58,193 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:26:00,239 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:26:04,797 - WARNING - Maksimum yeniden baðlanma denemesi aþýldý (5). Daha uzun süre bekleniyor...
+2025-06-06 00:26:07,084 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 3)
+2025-06-06 00:26:07,084 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:26:09,135 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:26:10,249 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 5)
+2025-06-06 00:26:10,249 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:26:12,283 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:26:19,145 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 4)
+2025-06-06 00:26:19,145 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:26:21,187 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:26:22,292 - WARNING - Maksimum yeniden baðlanma denemesi aþýldý (5). Daha uzun süre bekleniyor...
+2025-06-06 00:26:24,812 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 1)
+2025-06-06 00:26:24,812 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:26:26,877 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:26:31,188 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 5)
+2025-06-06 00:26:31,188 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:26:33,255 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:26:36,883 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 2)
+2025-06-06 00:26:36,883 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:26:38,934 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:26:42,295 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 1)
+2025-06-06 00:26:42,295 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:26:43,265 - WARNING - Maksimum yeniden baðlanma denemesi aþýldý (5). Daha uzun süre bekleniyor...
+2025-06-06 00:26:44,336 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:26:48,936 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 3)
+2025-06-06 00:26:48,936 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:26:50,981 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:26:54,339 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 2)
+2025-06-06 00:26:54,339 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:26:56,368 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:27:00,988 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 4)
+2025-06-06 00:27:00,988 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:27:03,043 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:27:03,276 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 1)
+2025-06-06 00:27:03,276 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:27:05,323 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:27:06,377 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 3)
+2025-06-06 00:27:06,377 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:27:08,425 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:27:13,052 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 5)
+2025-06-06 00:27:13,052 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:27:15,091 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:27:15,337 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 2)
+2025-06-06 00:27:15,337 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:27:17,367 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+2025-06-06 00:27:18,436 - INFO - Sunucuya baðlanmaya çalýþýlýyor... (Deneme: 4)
+2025-06-06 00:27:18,436 - INFO - Sunucuya baðlanýlýyor: 192.168.1.33:5002
+2025-06-06 00:27:20,479 - ERROR - Baðlantý hatasý: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý

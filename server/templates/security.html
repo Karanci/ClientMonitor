@@ -1,0 +1,1310 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Güvenlik İzleme - İzleme Merkezi</title>
+    
+    <!-- Fontlar ve CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.css" rel="stylesheet">
+    
+    <style>
+:root {
+  --primary-color: #4e73df;
+  --secondary-color: #224abe;
+  --success-color: #1cc88a;
+  --info-color: #36b9cc;
+  --warning-color: #f6c23e;
+  --danger-color: #e74a3b;
+  --light-color: #f8f9fc;
+  --dark-color: #5a5c69;
+  --body-color: #f8f9fc;
+  --border-color: #e3e6f0;
+}
+
+/* Genel Stiller */
+body {
+  font-family: 'Nunito', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background-color: var(--body-color);
+  color: var(--dark-color);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.dashboard-container {
+  padding: 1.5rem;
+}
+
+/* Sidebar */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 225px;
+  height: 100vh;
+  background: linear-gradient(180deg, var(--primary-color) 10%, var(--secondary-color) 100%);
+  box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
+  z-index: 1000;
+  transition: all 0.3s;
+}
+
+.sidebar-brand {
+  height: 4.375rem;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 800;
+  padding: 1.5rem 1rem;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.05rem;
+  z-index: 1;
+}
+
+.sidebar-brand-icon i {
+  font-size: 2rem;
+}
+
+.sidebar-brand-text {
+  display: inline;
+  margin-left: 0.5rem;
+}
+
+.sidebar-divider {
+  margin: 0 1rem 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.nav-item {
+  position: relative;
+}
+
+.nav-link {
+  text-align: left;
+  padding: 0.75rem 1rem;
+  width: 100%;
+  font-weight: 700;
+  display: block;
+  transition: all 0.2s;
+}
+
+.sidebar .nav-link {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.sidebar .nav-link:hover {
+  color: #fff;
+}
+
+.sidebar .nav-link i {
+  margin-right: 0.25rem;
+  font-size: 0.85rem;
+}
+
+.sidebar .nav-link.active {
+  color: #fff;
+  font-weight: 700;
+}
+
+/* Cards */
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid var(--border-color);
+  border-radius: 0.35rem;
+  box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.1);
+  margin-bottom: 2rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0.5rem 2rem 0 rgba(58, 59, 69, 0.15);
+}
+
+.card-header {
+  padding: 0.75rem 1.25rem;
+  margin-bottom: 0;
+  background-color: #f8f9fc;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-header:first-child {
+  border-radius: calc(0.35rem - 1px) calc(0.35rem - 1px) 0 0;
+}
+
+.card-header .card-title {
+  margin-bottom: 0;
+  color: #4e73df;
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+
+.card-body {
+  flex: 1 1 auto;
+  min-height: 1px;
+  padding: 1.5rem;
+}
+
+/* Status Cards */
+.status-card {
+  border-left: 0.25rem solid;
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 0.35rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
+}
+
+.status-card-primary {
+  border-left-color: var(--primary-color);
+}
+
+.status-card-success {
+  border-left-color: var(--success-color);
+}
+
+.status-card-info {
+  border-left-color: var(--info-color);
+}
+
+.status-card-warning {
+  border-left-color: var(--warning-color);
+}
+
+.status-card-danger {
+  border-left-color: var(--danger-color);
+}
+
+.status-card-icon {
+  font-size: 2rem;
+  color: #dddfeb;
+}
+
+.status-card-title {
+  color: var(--dark-color);
+  margin-bottom: 0.5rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.status-card-count {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--dark-color);
+}
+
+/* Timeline */
+.security-timeline {
+  list-style-type: none;
+  position: relative;
+  padding-left: 1.5rem;
+  margin: 0;
+}
+
+.security-timeline:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--border-color);
+}
+
+.security-timeline-item {
+  position: relative;
+  padding-bottom: 1.5rem;
+}
+
+.security-timeline-marker {
+  position: absolute;
+  left: -1.5rem;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  top: 0.25rem;
+}
+
+.security-timeline-marker.warning {
+  background-color: var(--warning-color);
+}
+
+.security-timeline-marker.danger {
+  background-color: var(--danger-color);
+}
+
+.security-timeline-content {
+  position: relative;
+  background-color: white;
+  padding: 1rem;
+  border-radius: 0.35rem;
+  box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.1);
+}
+
+.security-timeline-title {
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.security-timeline-time {
+  font-size: 0.75rem;
+  color: #6c757d;
+  margin-bottom: 0.5rem;
+}
+
+.security-timeline-description {
+  margin-bottom: 0;
+}
+
+/* Severity badges */
+.severity-badge {
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.severity-badge.low {
+  background-color: #c3e6cb;
+  color: #155724;
+}
+
+.severity-badge.medium {
+  background-color: #ffeeba;
+  color: #856404;
+}
+
+.severity-badge.high {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.security-chart-container {
+  position: relative;
+  height: 400px;
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+}
+
+.table-container {
+  margin-top: 1.5rem;
+}
+
+.search-box {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.search-box input {
+  padding-left: 2.5rem;
+  border-radius: 2rem;
+}
+
+.search-box i {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #6c757d;
+}
+
+.filter-dropdown {
+  margin-bottom: 1rem;
+}
+
+.main-content {
+  margin-left: 225px;
+  padding: 1.5rem;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+/* Grafik düzeni için ek stiller */
+.row {
+  margin-left: -1rem;
+  margin-right: -1rem;
+}
+
+.row > [class^="col-"] {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+/* Bilgisayar risk dağılımı için özel stil */
+.row.mt-4 {
+  margin-top: 2rem !important;
+}
+
+/* Daha büyük ekranlarda daha iyi boşluk */
+@media (min-width: 1100px) {
+  .security-chart-container {
+    height: 400px;
+  }
+  
+  .card-body {
+    padding: 2rem;
+  }
+  
+  .row.mt-4 {
+    margin-top: 2.5rem !important;
+  }
+  
+  .row > .col-xl-8,
+  .row > .col-xl-4 {
+    margin-bottom: 1.5rem;
+  }
+}
+
+/* Mobil düzen iyileştirmeleri */
+@media (max-width: 700px) {
+  .security-chart-container {
+    height: 300px;
+  }
+  
+  .card-body {
+    padding: 1rem;
+  }
+  
+  .row > [class^="col-"] {
+    margin-bottom: 1.5rem;
+  }
+}
+
+/* İlk sıradaki grafikler için ayarlar */
+.row:first-of-type .card {
+  height: calc(100% - 1.5rem);
+}
+
+/* Risk tag styles */
+.risk-tag {
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.1rem 0.3rem;
+  border-radius: 3px;
+  margin-left: 0.5rem;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.risk-tag.high {
+  background-color: #ffebee;
+  color: #c62828;
+  border: 1px solid #ef9a9a;
+}
+
+.risk-tag.medium {
+  background-color: #fff8e1;
+  color: #ff8f00;
+  border: 1px solid #ffe082;
+}
+
+.risk-tag.low {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+  border: 1px solid #a5d6a7;
+}
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
+            <div class="sidebar-brand-icon">
+                <i class="fas fa-desktop text-white"></i>
+            </div>
+            <div class="sidebar-brand-text text-white mx-3">PC Monitor</div>
+        </a>
+        
+        <hr class="sidebar-divider">
+        
+        <div class="nav-item">
+            <a class="nav-link" href="/">
+                <i class="fas fa-fw fa-tachometer-alt"></i>
+                <span>Dashboard</span>
+            </a>
+        </div>
+        
+        <div class="nav-item">
+            <a class="nav-link" href="/status">
+                <i class="fas fa-fw fa-server"></i>
+                <span>Sistem Durumu</span>
+            </a>
+        </div>
+        
+        <div class="nav-item">
+            <a class="nav-link active" href="/security">
+                <i class="fas fa-fw fa-shield-alt"></i>
+                <span>Güvenlik</span>
+            </a>
+        </div>
+        
+        <div class="nav-item">
+            <a class="nav-link" href="javascript:void(0)" onclick="showNotImplemented()">
+                <i class="fas fa-fw fa-cog"></i>
+                <span>Ayarlar</span>
+            </a>
+        </div>
+        
+        <hr class="sidebar-divider">
+        
+        <div class="nav-item">
+            <a class="nav-link" href="javascript:void(0)" onclick="showNotImplemented()">
+                <i class="fas fa-fw fa-sign-out-alt"></i>
+                <span>Çıkış</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="page-header">
+            <h1 class="h3 mb-0 text-gray-800">Güvenlik İzleme Merkezi</h1>
+            <div class="actions">
+                <button id="riskReportBtn" class="btn btn-info me-2">
+                    <i class="fas fa-file-alt me-2"></i>Risk Raporu
+                </button>
+                <button id="refreshBtn" class="btn btn-primary">
+                    <i class="fas fa-sync-alt me-2"></i>Yenile
+                </button>
+                <span class="ms-3 text-muted">Son güncelleme: <span id="lastUpdateTime">-</span></span>
+            </div>
+        </div>
+
+        <!-- İstatistik Kartları -->
+        <div class="row mb-4">
+            <div class="col-xl-3 col-md-6">
+                <div class="status-card status-card-primary">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="status-card-title">İzlenen Bilgisayarlar</div>
+                            <div class="status-card-count" id="totalComputers">{{ total_computers }}</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-desktop status-card-icon"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-xl-3 col-md-6">
+                <div class="status-card status-card-info">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="status-card-title">Toplam Defender Olayları</div>
+                            <div class="status-card-count" id="totalEvents">{{ total_events }}</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-shield-alt status-card-icon"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-xl-3 col-md-6">
+                <div class="status-card status-card-warning">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="status-card-title">Uyarılar</div>
+                            <div class="status-card-count" id="totalWarnings">{{ total_warnings }}</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-exclamation-triangle status-card-icon"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-xl-3 col-md-6">
+                <div class="status-card status-card-danger">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="status-card-title">Kritik Olaylar</div>
+                            <div class="status-card-count" id="criticalEvents">{{ critical_events }}</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-radiation status-card-icon"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Grafikler ve Olaylar -->
+        <div class="row">
+            <!-- Olay Dağılımı Grafiği -->
+            <div class="col-xl-8">
+                <div class="card">
+                    <div class="card-header">
+                        <h6 class="card-title">Günlük Defender Olayları (Son 30 Gün)</h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="security-chart-container">
+                            <canvas id="eventsTimelineChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Olay Türleri Dağılımı -->
+            <div class="col-xl-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h6 class="card-title">Olay Türleri Dağılımı</h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="security-chart-container">
+                            <canvas id="eventTypesChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bilgisayar Risk Dağılımı -->
+        <div class="row mt-4">
+            <div class="col-xl-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h6 class="card-title">Bilgisayarlara Göre Risk Dağılımı</h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-xl-12 mb-4">
+                                <div class="security-chart-container">
+                                    <canvas id="computerRiskChart"></canvas>
+                                </div>
+                            </div>
+                            <div class="col-xl-12">
+                                <div class="table-container">
+                                    <table class="table table-sm" id="computerRiskTable">
+                                        <thead>
+                                            <tr>
+                                                <th>Bilgisayar</th>
+                                                <th>Toplam Olay</th>
+                                                <th>Kritik</th>
+                                                <th>Orta</th>
+                                                <th>Düşük</th>
+                                                <th>Risk Skoru</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for computer in computer_risks %}
+                                            <tr>
+                                                <td>{{ computer.computer_name }}</td>
+                                                <td>{{ computer.total_events }}</td>
+                                                <td>{{ computer.high_events }}</td>
+                                                <td>{{ computer.medium_events }}</td>
+                                                <td>{{ computer.low_events }}</td>
+                                                <td>
+                                                    <div class="progress">
+                                                        <div class="progress-bar bg-{{ computer.risk_level }}" 
+                                                             role="progressbar" 
+                                                             style="width: {{ computer.risk_score }}%;" 
+                                                             aria-valuenow="{{ computer.risk_score }}" 
+                                                             aria-valuemin="0" 
+                                                             aria-valuemax="100">{{ computer.risk_score }}%</div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Defender Olayları Tablosu -->
+        <div class="card mt-4">
+            <div class="card-header">
+                <h6 class="card-title">Windows Defender Olayları</h6>
+                <div class="d-flex">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="searchInput" class="form-control" placeholder="Olay ara...">
+                    </div>
+                    <div class="filter-dropdown ms-2">
+                        <select id="severityFilter" class="form-select">
+                            <option value="all">Tüm Olaylar</option>
+                            <option value="warning">Sadece Uyarılar</option>
+                            <option value="critical">Sadece Kritik Olaylar</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <div id="searchResultCount" class="small text-muted">Tüm olaylar gösteriliyor</div>
+                </div>
+                <div class="table-container">
+                    <table class="table table-hover" id="defenderTable">
+                        <thead>
+                            <tr>
+                                <th>Bilgisayar</th>
+                                <th>Olay ID</th>
+                                <th>Kaynak</th>
+                                <th>Zaman</th>
+                                <th>Açıklama</th>
+                                <th>Risk Seviyesi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for event in defender_events %}
+                            <tr>
+                                <td>{{ event.computer_name }}</td>
+                                <td>{{ event.event_id }}</td>
+                                <td>{{ event.source }}</td>
+                                <td>{{ event.log_time }}</td>
+                                <td>{{ event.description }}
+                                    {% if event.event_id in [1006, 1007, 1008, 1009, 1116, 1117, 1073758208] or 'tehdit' in event.description or 'virüs' in event.description or 'malware' in event.description %}
+                                    <span class="risk-tag high">Yüksek Risk</span>
+                                    {% elif event.event_id in [1005, 1010, 1118, 1119, -1073725430, 1073742724, 1013, 1015, 1121, 1122, 1123, 8004] %}
+                                    <span class="risk-tag medium">Orta Risk</span>
+                                    {% else %}
+                                    <span class="risk-tag low">Düşük Risk</span>
+                                    {% endif %}
+                                </td>
+                                <td>
+                                    {% if event.event_id in [1006, 1007, 1008, 1009, 1116, 1117, 1073758208] or 'tehdit' in event.description or 'virüs' in event.description or 'malware' in event.description %}
+                                    <span class="severity-badge high"><i class="fas fa-exclamation-triangle me-1"></i>Yüksek</span>
+                                    {% elif event.event_id in [1005, 1010, 1118, 1119, -1073725430, 1073742724, 1013, 1015, 1121, 1122, 1123, 8004] %}
+                                    <span class="severity-badge medium"><i class="fas fa-exclamation-circle me-1"></i>Orta</span>
+                                    {% else %}
+                                    <span class="severity-badge low"><i class="fas fa-info-circle me-1"></i>Düşük</span>
+                                    {% endif %}
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Risk Raporu Modalı -->
+    <div class="modal fade" id="riskReportModal" tabindex="-1" aria-labelledby="riskReportModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="riskReportModalLabel">
+                        <i class="fas fa-file-alt me-2"></i>Bilgisayar Risk Raporu
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Kapat"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="reportContent">
+                        <div class="text-center mb-4">
+                            <h2>Bilgisayarlara Göre Risk Dağılımı Raporu</h2>
+                            <p class="text-muted">Oluşturulma Tarihi: <span id="reportDate"></span></p>
+                        </div>
+                        
+                        <div class="report-chart-container mb-4" style="height: 400px;">
+                            <canvas id="reportChart"></canvas>
+                        </div>
+                        
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Bilgisayar Adı</th>
+                                        <th>Toplam Olay</th>
+                                        <th>Yüksek Risk</th>
+                                        <th>Orta Risk</th>
+                                        <th>Düşük Risk</th>
+                                        <th>Risk Skoru</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="reportTableBody">
+                                    <!-- Tablo içeriği JavaScript ile doldurulacak -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
+                    <button type="button" class="btn btn-primary" id="downloadReportBtn">
+                        <i class="fas fa-download me-2"></i>PDF İndir
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+    <!-- HTML2PDF Kütüphanesi -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script>
+        // Global değişkenler
+        var eventsTimelineChart;
+        var eventTypesChart;
+        var computerRiskChart;
+        var computerData = []; // Bilgisayarlara göre risk verileri
+        
+        // Sayfa yüklendiğinde
+        document.addEventListener('DOMContentLoaded', function() {
+            // Son güncelleme zamanını ayarla
+            updateLastUpdateTime();
+            
+            // Grafikleri yükle
+            initCharts();
+            
+            // Yenileme düğmesi
+            document.getElementById('refreshBtn').addEventListener('click', function() {
+                this.querySelector('i').classList.add('fa-spin');
+                
+                // Sayfayı yenile
+                window.location.reload();
+            });
+            
+            // Risk Raporu düğmesi
+            document.getElementById('riskReportBtn').addEventListener('click', function() {
+                generateRiskReport();
+            });
+            
+            // Rapor indirme düğmesi
+            document.getElementById('downloadReportBtn').addEventListener('click', function() {
+                downloadRiskReport();
+            });
+            
+            // Arama işlevselliği
+            const searchInput = document.getElementById('searchInput');
+            searchInput.addEventListener('keyup', function() {
+                filterTable();
+            });
+            
+            // Filtreleme işlevselliği
+            const severityFilter = document.getElementById('severityFilter');
+            severityFilter.addEventListener('change', function() {
+                filterTable();
+            });
+
+            // Sayaçları animasyonla göster
+            const countElements = document.querySelectorAll('.status-card-count');
+            countElements.forEach(el => {
+                const finalValue = parseInt(el.textContent || '0');
+                if (!isNaN(finalValue)) {
+                    animateCount(el, 0, finalValue, 1000);
+                }
+            });
+        });
+        
+        // Son güncelleme zamanını ayarla
+        function updateLastUpdateTime() {
+            const now = new Date();
+            document.getElementById('lastUpdateTime').textContent = now.toLocaleTimeString('tr-TR');
+        }
+        
+        // Tablo filtreleme
+        function filterTable() {
+            const searchVal = document.getElementById('searchInput').value.toLowerCase();
+            const severityFilter = document.getElementById('severityFilter').value;
+            const table = document.getElementById('defenderTable');
+            
+            if (!table) return;
+            
+            const rows = table.querySelectorAll('tbody tr');
+            let visibleCount = 0;
+            
+            rows.forEach(row => {
+                const text = row.textContent.toLowerCase();
+                const severityBadge = row.querySelector('td:last-child .severity-badge');
+                let severityMatch = true;
+                
+                if (severityFilter !== 'all') {
+                    const severityText = severityBadge ? severityBadge.textContent.toLowerCase() : '';
+                    
+                    if (severityFilter === 'warning' && severityText !== 'orta') {
+                        severityMatch = false;
+                    } else if (severityFilter === 'critical' && severityText !== 'yüksek') {
+                        severityMatch = false;
+                    }
+                }
+                
+                if (text.includes(searchVal) && severityMatch) {
+                    row.style.display = '';
+                    visibleCount++;
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+            
+            // Görünür satır sayısını göster
+            const resultText = document.getElementById('searchResultCount');
+            if (resultText) {
+                resultText.textContent = `${visibleCount} sonuç gösteriliyor`;
+            }
+        }
+        
+        // Risk Raporu Oluşturma
+        function generateRiskReport() {
+            // Rapor oluşturma tarihini ayarla
+            const now = new Date();
+            document.getElementById('reportDate').textContent = now.toLocaleString('tr-TR');
+            
+            // Bilgisayar risk verilerini al
+            const reportTableBody = document.getElementById('reportTableBody');
+            reportTableBody.innerHTML = '';
+            
+            // Tablo satırlarını oluştur
+            computerData.forEach(computer => {
+                const row = document.createElement('tr');
+                
+                // Risk skoru 70'den büyükse kırmızı, 30'dan büyükse sarı, diğerleri yeşil renkte olsun
+                let riskClass = '';
+                if (computer.riskScore > 70) {
+                    riskClass = 'table-danger';
+                } else if (computer.riskScore > 30) {
+                    riskClass = 'table-warning';
+                } else {
+                    riskClass = 'table-success';
+                }
+                
+                row.className = riskClass;
+                row.innerHTML = `
+                    <td>${computer.name}</td>
+                    <td>${computer.totalEvents}</td>
+                    <td>${computer.highEvents}</td>
+                    <td>${computer.mediumEvents}</td>
+                    <td>${computer.lowEvents}</td>
+                    <td>
+                        <div class="progress" style="height: 20px;">
+                            <div class="progress-bar bg-${computer.riskScore > 70 ? 'danger' : computer.riskScore > 30 ? 'warning' : 'success'}" 
+                                 role="progressbar" 
+                                 style="width: ${computer.riskScore}%;" 
+                                 aria-valuenow="${computer.riskScore}" 
+                                 aria-valuemin="0" 
+                                 aria-valuemax="100">${computer.riskScore}%</div>
+                        </div>
+                    </td>
+                `;
+                
+                reportTableBody.appendChild(row);
+            });
+            
+            // Rapor grafiğini oluştur
+            createReportChart();
+            
+            // Modalı göster
+            const riskReportModal = new bootstrap.Modal(document.getElementById('riskReportModal'));
+            riskReportModal.show();
+        }
+        
+        // Rapor grafiğini oluştur
+        function createReportChart() {
+            const ctx = document.getElementById('reportChart').getContext('2d');
+            
+            // Önceki grafik varsa yok et
+            if (window.reportChart instanceof Chart) {
+                window.reportChart.destroy();
+            }
+            
+            // Her bilgisayar için verilerini hazırla
+            const labels = computerData.map(computer => computer.name);
+            const highData = computerData.map(computer => computer.highEvents);
+            const mediumData = computerData.map(computer => computer.mediumEvents);
+            const lowData = computerData.map(computer => computer.lowEvents);
+            
+            // Yeni grafiği oluştur
+            window.reportChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [
+                        {
+                            label: 'Yüksek Risk',
+                            data: highData,
+                            backgroundColor: 'rgba(231, 74, 59, 0.8)',
+                            borderColor: 'rgb(231, 74, 59)',
+                            borderWidth: 1
+                        },
+                        {
+                            label: 'Orta Risk',
+                            data: mediumData,
+                            backgroundColor: 'rgba(246, 194, 62, 0.8)',
+                            borderColor: 'rgb(246, 194, 62)',
+                            borderWidth: 1
+                        },
+                        {
+                            label: 'Düşük Risk',
+                            data: lowData,
+                            backgroundColor: 'rgba(28, 200, 138, 0.8)',
+                            borderColor: 'rgb(28, 200, 138)',
+                            borderWidth: 1
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: {
+                            stacked: true
+                        },
+                        y: {
+                            stacked: true,
+                            beginAtZero: true,
+                            ticks: {
+                                precision: 0
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        },
+                        title: {
+                            display: true,
+                            text: 'Bilgisayarlara Göre Risk Olayları Dağılımı'
+                        }
+                    }
+                }
+            });
+        }
+        
+        // Raporu PDF olarak indir
+        function downloadRiskReport() {
+            // PDF oluşturmadan önce indirme düğmesini devre dışı bırak
+            const downloadBtn = document.getElementById('downloadReportBtn');
+            downloadBtn.disabled = true;
+            downloadBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Hazırlanıyor...';
+            
+            // Rapor içeriğini al
+            const reportContent = document.getElementById('reportContent');
+            
+            // HTML2PDF seçenekleri
+            const options = {
+                margin: [10, 10, 10, 10],
+                filename: 'risk_raporu_' + new Date().toISOString().slice(0, 10) + '.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2, useCORS: true },
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            };
+            
+            // Küçük bir gecikme ekle (bu, Canvas'ın tam olarak oluşturulmasına yardımcı olur)
+            setTimeout(() => {
+                // PDF oluştur ve indir
+                html2pdf().set(options).from(reportContent).save().then(() => {
+                    // İndirme tamamlandığında düğmeyi yeniden etkinleştir
+                    downloadBtn.disabled = false;
+                    downloadBtn.innerHTML = '<i class="fas fa-download me-2"></i>PDF İndir';
+                    showNotification('PDF raporu başarıyla oluşturuldu.', 'success');
+                }).catch(error => {
+                    console.error('PDF oluşturma hatası:', error);
+                    downloadBtn.disabled = false;
+                    downloadBtn.innerHTML = '<i class="fas fa-download me-2"></i>PDF İndir';
+                    showNotification('PDF oluşturulamadı: ' + error.message, 'danger');
+                });
+            }, 500);
+        }
+
+        // Grafikleri başlat
+        function initCharts() {
+            // Günlük olaylar grafiği
+            const eventsTimelineCtx = document.getElementById('eventsTimelineChart').getContext('2d');
+            
+            const dailyEventsData = {
+                {% for event in daily_events %}
+                "{{ event.event_date }}": {{ event.event_count }},
+                {% endfor %}
+            };
+            
+            const labels = Object.keys(dailyEventsData);
+            const data = Object.values(dailyEventsData);
+            
+            eventsTimelineChart = new Chart(eventsTimelineCtx, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Günlük Olaylar',
+                        data: data,
+                        backgroundColor: 'rgba(78, 115, 223, 0.2)',
+                        borderColor: 'rgba(78, 115, 223, 1)',
+                        borderWidth: 2,
+                        pointRadius: 3,
+                        pointBackgroundColor: 'rgba(78, 115, 223, 1)',
+                        pointBorderColor: '#fff',
+                        pointHoverRadius: 5,
+                        pointHoverBackgroundColor: 'rgba(78, 115, 223, 1)',
+                        pointHoverBorderColor: '#fff',
+                        tension: 0.3
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    layout: {
+                        padding: {
+                            left: 10,
+                            right: 25,
+                            top: 15,
+                            bottom: 15
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: {
+                                drawBorder: false
+                            }
+                        },
+                        x: {
+                            grid: {
+                                display: false
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    }
+                }
+            });
+            
+            // Olay türleri dağılımı grafiği
+            const eventTypesCtx = document.getElementById('eventTypesChart').getContext('2d');
+            
+            const eventTypesData = {
+                {% for event_type in event_types %}
+                "ID {{ event_type.event_id }}": {{ event_type.count }},
+                {% endfor %}
+            };
+            
+            const eventLabels = Object.keys(eventTypesData);
+            const eventData = Object.values(eventTypesData);
+            const eventColors = [
+                '#4e73df', '#1cc88a', '#36b9cc', '#f6c23e', '#e74a3b', 
+                '#858796', '#5a5c69', '#6610f2', '#6f42c1', '#e83e8c'
+            ];
+            
+            eventTypesChart = new Chart(eventTypesCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: eventLabels,
+                    datasets: [{
+                        data: eventData,
+                        backgroundColor: eventColors,
+                        hoverBackgroundColor: eventColors.map(color => color + 'dd'),
+                        hoverBorderColor: "rgba(234, 236, 244, 1)",
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    cutout: '70%',
+                    layout: {
+                        padding: {
+                            left: 10,
+                            right: 10,
+                            top: 10,
+                            bottom: 10
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            position: 'right',
+                            labels: {
+                                usePointStyle: true,
+                                padding: 15,
+                                boxWidth: 10,
+                                font: {
+                                    size: 11
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+            
+            // Bilgisayar risk dağılımı grafiği
+            const computerRiskCtx = document.getElementById('computerRiskChart').getContext('2d');
+            
+            // Bilgisayarlara göre risk verileri
+            const computerData = [
+                {% for computer in computer_risks %}
+                {
+                    name: "{{ computer.computer_name }}",
+                    highEvents: {{ computer.high_events }},
+                    mediumEvents: {{ computer.medium_events }},
+                    lowEvents: {{ computer.low_events }},
+                    totalEvents: {{ computer.total_events }},
+                    riskScore: {{ computer.risk_score }}
+                },
+                {% endfor %}
+            ];
+            
+            // Global computerData değişkenini güncelle (rapor oluşturma için)
+            window.computerData = computerData;
+            
+            // Tüm bilgisayarları göster, sadece olay sayısı fazla olanları değil
+            const topComputers = computerData
+                .sort((a, b) => b.riskScore - a.riskScore);
+            
+            // Gösterilecek bilgisayar sayısını sınırla (eğer çok fazla bilgisayar varsa)
+            const maxComputersToShow = Math.min(10, topComputers.length);
+            const displayComputers = topComputers.slice(0, maxComputersToShow);
+            
+            const computerLabels = displayComputers.map(c => c.name);
+            const highData = displayComputers.map(c => c.highEvents);
+            const mediumData = displayComputers.map(c => c.mediumEvents);
+            const lowData = displayComputers.map(c => c.lowEvents);
+            
+            computerRiskChart = new Chart(computerRiskCtx, {
+                type: 'bar',
+                data: {
+                    labels: computerLabels,
+                    datasets: [
+                        {
+                            label: 'Kritik Olaylar',
+                            data: highData,
+                            backgroundColor: '#e74a3b',
+                            borderColor: '#e74a3b',
+                            borderWidth: 1
+                        },
+                        {
+                            label: 'Orta Seviye Olaylar',
+                            data: mediumData,
+                            backgroundColor: '#f6c23e',
+                            borderColor: '#f6c23e',
+                            borderWidth: 1
+                        },
+                        {
+                            label: 'Düşük Seviye Olaylar',
+                            data: lowData,
+                            backgroundColor: '#1cc88a',
+                            borderColor: '#1cc88a',
+                            borderWidth: 1
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    layout: {
+                        padding: {
+                            left: 10,
+                            right: 25,
+                            top: 15,
+                            bottom: 15
+                        }
+                    },
+                    scales: {
+                        x: {
+                            stacked: true,
+                            grid: {
+                                display: false
+                            }
+                        },
+                        y: {
+                            stacked: true,
+                            beginAtZero: true,
+                            grid: {
+                                drawBorder: false
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                            labels: {
+                                usePointStyle: true,
+                                padding: 15,
+                                boxWidth: 10,
+                                font: {
+                                    size: 11
+                                }
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                afterTitle: function(tooltipItems) {
+                                    const idx = tooltipItems[0].dataIndex;
+                                    const computer = displayComputers[idx];
+                                    const total = computer.highEvents + computer.mediumEvents + computer.lowEvents;
+                                    return `Toplam: ${total} olay`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+        
+        // Sayı animasyonu
+        function animateCount(element, start, end, duration) {
+            element.textContent = '0';
+            
+            let startTimestamp = null;
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                element.textContent = Math.floor(progress * (end - start) + start);
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                }
+            };
+            window.requestAnimationFrame(step);
+        }
+        
+        // Bildirim gösterme fonksiyonu
+        function showNotification(message, type) {
+            const alertClass = type === 'success' ? 'alert-success' : 
+                            type === 'danger' ? 'alert-danger' : 'alert-info';
+            
+            const alertHtml = `
+                <div class="alert ${alertClass} alert-dismissible fade show position-fixed top-0 start-50 translate-middle-x mt-5" style="z-index: 9999;" role="alert">
+                    <i class="fas ${type === 'success' ? 'fa-check-circle' : type === 'danger' ? 'fa-exclamation-triangle' : 'fa-info-circle'} me-2"></i>
+                    ${message}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Kapat"></button>
+                </div>
+            `;
+            
+            // Mevcut uyarıları temizle
+            document.querySelectorAll('.alert.position-fixed').forEach(el => el.remove());
+            
+            // Yeni uyarıyı ekle
+            const alertElement = document.createElement('div');
+            alertElement.innerHTML = alertHtml;
+            document.body.appendChild(alertElement.firstElementChild);
+            
+            // 5 saniye sonra otomatik kapat
+            setTimeout(() => {
+                const alert = document.querySelector('.alert.position-fixed');
+                if (alert) {
+                    const bsAlert = new bootstrap.Alert(alert);
+                    bsAlert.close();
+                }
+            }, 5000);
+        }
+    </script>
+</body>
+</html>

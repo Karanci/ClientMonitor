@@ -1,0 +1,1341 @@
+'DESKTOP-I7OR9MD', '2025-03-09 21:06:32', '2025-03-09 18:22:30', '-9842'
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem İzleme Dashboard</title>
+    
+    <!-- Fontlar ve CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.css" rel="stylesheet">
+    
+    <style>
+:root {
+  --primary-color: #4e73df;
+  --secondary-color: #224abe;
+  --success-color: #1cc88a;
+  --info-color: #36b9cc;
+  --warning-color: #f6c23e;
+  --danger-color: #e74a3b;
+  --light-color: #f8f9fc;
+  --dark-color: #5a5c69;
+  --body-color: #f8f9fc;
+  --border-color: #e3e6f0;
+}
+
+/* Genel Stiller */
+body {
+  font-family: 'Nunito', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background-color: var(--body-color);
+  color: var(--dark-color);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.dashboard-container {
+  padding: 1.5rem;
+}
+
+/* Sidebar */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 225px;
+  height: 100vh;
+  background: linear-gradient(180deg, var(--primary-color) 10%, var(--secondary-color) 100%);
+  box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
+  z-index: 1000;
+  transition: all 0.3s;
+}
+
+.sidebar-brand {
+  height: 4.375rem;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 800;
+  padding: 1.5rem 1rem;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.05rem;
+  z-index: 1;
+}
+
+.sidebar-brand-icon i {
+  font-size: 2rem;
+}
+
+.sidebar-brand-text {
+  display: inline;
+  margin-left: 0.5rem;
+}
+
+.sidebar-divider {
+  margin: 0 1rem 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.nav-item {
+  position: relative;
+}
+
+.nav-link {
+  text-align: left;
+  padding: 0.75rem 1rem;
+  width: 100%;
+  font-weight: 700;
+  display: block;
+  transition: all 0.2s;
+}
+
+.sidebar .nav-link {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.sidebar .nav-link:hover {
+  color: #fff;
+}
+
+.sidebar .nav-link i {
+  margin-right: 0.25rem;
+  font-size: 0.85rem;
+}
+
+.sidebar .nav-link.active {
+  color: #fff;
+  font-weight: 700;
+}
+
+/* Cards */
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid var(--border-color);
+  border-radius: 0.35rem;
+  box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.1);
+  margin-bottom: 1.5rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0.5rem 2rem 0 rgba(58, 59, 69, 0.15);
+}
+
+.card-header {
+  padding: 0.75rem 1.25rem;
+  margin-bottom: 0;
+  background-color: #f8f9fc;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-header:first-child {
+  border-radius: calc(0.35rem - 1px) calc(0.35rem - 1px) 0 0;
+}
+
+.card-header .card-title {
+  margin-bottom: 0;
+  color: #4e73df;
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+
+.card-body {
+  flex: 1 1 auto;
+  min-height: 1px;
+  padding: 1.25rem;
+}
+
+/* Status Cards */
+.status-card {
+  border-left: 0.25rem solid;
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 0.35rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
+}
+
+.status-card-primary {
+  border-left-color: var(--primary-color);
+}
+
+.status-card-success {
+  border-left-color: var(--success-color);
+}
+
+.status-card-info {
+  border-left-color: var(--info-color);
+}
+
+.status-card-warning {
+  border-left-color: var(--warning-color);
+}
+
+.status-card-danger {
+  border-left-color: var(--danger-color);
+}
+
+.status-card-icon {
+  font-size: 2rem;
+  color: #dddfeb;
+}
+
+.status-card-title {
+  color: var(--dark-color);
+  margin-bottom: 0.5rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.status-card-value {
+  color: var(--dark-color);
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0;
+}
+
+/* Content Area */
+.content-wrapper {
+  margin-left: 225px;
+  padding: 1.5rem;
+  padding-top: 6rem;
+  min-height: 100vh;
+}
+
+/* Tables */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.data-table thead th {
+  background-color: #f8f9fc;
+  color: var(--dark-color);
+  padding: 0.75rem;
+  font-weight: 700;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.data-table tbody tr {
+  border-bottom: 1px solid var(--border-color);
+  transition: background-color 0.2s;
+}
+
+.data-table tbody tr:hover {
+  background-color: rgba(78, 115, 223, 0.05);
+}
+
+.data-table tbody td {
+  padding: 0.75rem;
+  vertical-align: middle;
+}
+
+/* Status Badges */
+.badge {
+  display: inline-block;
+  padding: 0.4em 0.8em;
+  font-size: 0.75em;
+  font-weight: 700;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 50rem;
+}
+
+.badge-success {
+  background-color: var(--success-color);
+}
+
+.badge-danger {
+  background-color: var(--danger-color);
+}
+
+/* Top Navigation */
+.topbar {
+  height: 4.375rem;
+  background-color: #fff;
+  box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 225px;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  padding: 0 1.5rem;
+  justify-content: space-between;
+}
+
+.topbar h1 {
+  margin: 0;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--dark-color);
+}
+
+.topbar-divider {
+  width: 0;
+  border-right: 1px solid var(--border-color);
+  height: calc(4.375rem - 2rem);
+  margin: auto 1rem;
+}
+
+.refresh-btn {
+  cursor: pointer;
+  font-size: 1.25rem;
+  color: var(--primary-color);
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  background: none;
+  border: none;
+}
+
+.refresh-btn:hover {
+  color: var(--secondary-color);
+}
+
+.refresh-btn i {
+  transition: transform 0.3s;
+}
+
+.refresh-btn:hover i {
+  transform: rotate(180deg);
+}
+
+/* Scrollable Content */
+.scrollable-content {
+  max-height: 600px;
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .sidebar {
+    width: 90px;
+  }
+  
+  .sidebar-brand-text {
+    display: none;
+  }
+  
+  .sidebar .nav-link span {
+    display: none;
+  }
+  
+  .sidebar .nav-link i {
+    font-size: 1.2rem;
+    margin-right: 0;
+  }
+  
+  .content-wrapper {
+    margin-left: 90px;
+  }
+  
+  .topbar {
+    left: 90px;
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 0;
+  }
+  
+  .content-wrapper {
+    margin-left: 0;
+  }
+  
+  .topbar {
+    left: 0;
+  }
+}
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
+            <div class="sidebar-brand-icon">
+                <i class="fas fa-desktop text-white"></i>
+            </div>
+            <div class="sidebar-brand-text text-white mx-3">PC Monitor</div>
+        </a>
+        
+        <hr class="sidebar-divider">
+        
+        <div class="nav-item">
+            <a class="nav-link active" href="/">
+                <i class="fas fa-fw fa-tachometer-alt"></i>
+                <span>Dashboard</span>
+            </a>
+        </div>
+        
+        <div class="nav-item">
+            <a class="nav-link" href="/status">
+                <i class="fas fa-fw fa-server"></i>
+                <span>Sistem Durumu</span>
+            </a>
+        </div>
+        
+        <div class="nav-item">
+            <a class="nav-link" href="/security">
+                <i class="fas fa-fw fa-shield-alt"></i>
+                <span>Güvenlik</span>
+            </a>
+        </div>
+        
+        <div class="nav-item">
+            <a class="nav-link" href="javascript:void(0)" onclick="showNotImplemented()">
+                <i class="fas fa-fw fa-cog"></i>
+                <span>Ayarlar</span>
+            </a>
+        </div>
+        
+        <hr class="sidebar-divider">
+        
+        <div class="nav-item">
+            <a class="nav-link" href="javascript:void(0)" onclick="showNotImplemented()">
+                <i class="fas fa-fw fa-sign-out-alt"></i>
+                <span>Çıkış</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Top Navigation Bar -->
+    <div class="topbar">
+        <h1><i class="fas fa-tachometer-alt me-2"></i> Sistem İzleme Merkezi</h1>
+        <div class="d-flex align-items-center">
+            <button id="refreshBtn" class="refresh-btn" title="Yenile">
+                <i class="fas fa-sync-alt"></i>
+            </button>
+            <div class="topbar-divider"></div>
+            <div class="d-flex align-items-center">
+                <div class="me-3 text-end">
+                    <div class="small text-gray-500">Son güncelleme</div>
+                    <div id="lastUpdateTime"></div>
+                </div>
+                <i class="fas fa-user-shield fa-lg text-primary"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- Content Wrapper -->
+    <div class="content-wrapper">
+        <div class="container-fluid">
+            <!-- Dashboard Özet -->
+            <div class="row mb-4">
+                <div class="col-xl-3 col-md-6 mb-4">
+                    <div class="status-card status-card-primary">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <div class="status-card-title">Aktif Bilgisayar</div>
+                                <div class="status-card-value" id="activeCount">0</div>
+                            </div>
+                            <i class="fas fa-desktop fa-2x status-card-icon"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6 mb-4">
+                    <div class="status-card status-card-success">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <div class="status-card-title">Çevrimiçi</div>
+                                <div class="status-card-value" id="onlineCount">0</div>
+                            </div>
+                            <i class="fas fa-check-circle fa-2x status-card-icon"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6 mb-4">
+                    <div class="status-card status-card-info">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <div class="status-card-title">Çevrimdışı</div>
+                                <div class="status-card-value" id="offlineCount">0</div>
+                            </div>
+                            <i class="fas fa-power-off fa-2x status-card-icon"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6 mb-4">
+                    <div class="status-card status-card-warning">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <div class="status-card-title">Olay Sayısı</div>
+                                <div class="status-card-value" id="eventCount">0</div>
+                            </div>
+                            <i class="fas fa-bell fa-2x status-card-icon"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bilgisayar Tablosu -->
+            <div class="card shadow mb-4">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">
+                        <i class="fas fa-server me-2"></i>Tüm Sistemler
+                    </h5>
+                    <div>
+                        <input type="text" id="searchInput" class="form-control form-control-sm" placeholder="Bilgisayar ara...">
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover data-table" id="computersTable">
+                            <thead>
+                                <tr>
+                                    <th>Bilgisayar Adı</th>
+                                    <th>Durum</th>
+                                    <th>Son Güncelleme</th>
+                                    <th>İşletim Sistemi</th>
+                                    <th>İşlemci</th>
+                                    <th>RAM</th>
+                                    <th>Disk</th>
+                                    <th>İşlemler</th>
+                                </tr>
+                            </thead>
+                            <tbody id="computersTableBody">
+                                {% for computer in computers %}
+                                <tr>
+                                    <td class="fw-bold">{{ computer.computer_name }}</td>
+                                    <td>
+                                        <span class="badge {% if computer.status == 'Açık' %}bg-success{% else %}bg-danger{% endif %}">
+                                            {% if computer.status == 'Açık' %}Çevrimiçi{% else %}Çevrimdışı{% endif %}
+                                        </span>
+                                    </td>
+                                    <td>{{ computer.last_update }}</td>
+                                    <td>{{ computer.operating_system }}</td>
+                                    <td>{{ computer.processor }}</td>
+                                    <td>{{ computer.ram }}</td>
+                                    <td>{{ computer.disk_space }}</td>
+                                    <td>
+                                        <button class="btn btn-primary btn-sm" onclick="showDetails('{{ computer.computer_name }}')">
+                                            <i class="fas fa-info-circle me-1"></i>Detaylar
+                                        </button>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Sistem Özeti Grafikler -->
+            <div class="row">
+                <div class="col-xl-8 col-lg-7">
+                    <div class="card shadow mb-4">
+                        <div class="card-header">
+                            <h5 class="card-title mb-0">
+                                <i class="fas fa-chart-area me-2"></i>Sistem Durumu Grafiği
+                            </h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="chart-area">
+                                <canvas id="systemStatusChart" height="300"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-5">
+                    <div class="card shadow mb-4">
+                        <div class="card-header">
+                            <h5 class="card-title mb-0">
+                                <i class="fas fa-chart-pie me-2"></i>Aktif/Pasif Sistemler
+                            </h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="chart-pie">
+                                <canvas id="statusPieChart" height="300"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Detay Modalı -->
+    <div class="modal fade" id="pcDetailModal" tabindex="-1" role="dialog" aria-labelledby="pcDetailModalLabel" aria-modal="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="pcDetailModalLabel">
+                        <i class="fas fa-desktop me-2"></i>
+                        <span id="computerName">Bilgisayar Detayları</span>
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Kapat"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="scrollable-content">
+                        <div class="row">
+                            <!-- Donanım Bilgileri -->
+                            <div class="col-lg-6">
+                                <div class="detail-section">
+                                    <h5 class="detail-section-title">
+                                        <i class="fas fa-microchip me-2"></i>Donanım Bilgileri
+                                    </h5>
+                                    <div id="hardwareInfo" class="detail-section-content">
+                                        <div class="text-center py-3">
+                                            <div class="spinner-border text-primary" role="status">
+                                                <span class="visually-hidden">Yükleniyor...</span>
+                                            </div>
+                                            <p class="mt-2">Bilgiler yükleniyor...</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Ağ Bilgileri -->
+                            <div class="col-lg-6">
+                                <div class="detail-section">
+                                    <h5 class="detail-section-title">
+                                        <i class="fas fa-network-wired me-2"></i>Ağ Bilgileri
+                                    </h5>
+                                    <div id="networkInfo" class="detail-section-content">
+                                        <div class="text-center py-3">
+                                            <div class="spinner-border text-primary" role="status">
+                                                <span class="visually-hidden">Yükleniyor...</span>
+                                            </div>
+                                            <p class="mt-2">Bilgiler yükleniyor...</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Açık Portlar -->
+                            <div class="col-lg-6">
+                                <div class="detail-section">
+                                    <h5 class="detail-section-title">
+                                        <i class="fas fa-plug me-2"></i>Açık Portlar
+                                    </h5>
+                                    <div id="portInfo" class="detail-section-content">
+                                        <div class="text-center py-3">
+                                            <div class="spinner-border text-primary" role="status">
+                                                <span class="visually-hidden">Yükleniyor...</span>
+                                            </div>
+                                            <p class="mt-2">Bilgiler yükleniyor...</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Defender Durumu -->
+                            <div class="col-lg-6">
+                                <div class="detail-section">
+                                    <h5 class="detail-section-title">
+                                        <i class="fas fa-shield-alt me-2"></i>Defender Durumu
+                                    </h5>
+                                    <div id="defenderInfo" class="detail-section-content">
+                                        <div class="text-center py-3">
+                                            <div class="spinner-border text-primary" role="status">
+                                                <span class="visually-hidden">Yükleniyor...</span>
+                                            </div>
+                                            <p class="mt-2">Bilgiler yükleniyor...</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Son Olaylar -->
+                            <div class="col-lg-6">
+                                <div class="detail-section">
+                                    <h5 class="detail-section-title">
+                                        <i class="fas fa-history me-2"></i>Son Olaylar
+                                    </h5>
+                                    <div id="eventInfo" class="detail-section-content">
+                                        <div class="text-center py-3">
+                                            <div class="spinner-border text-primary" role="status">
+                                                <span class="visually-hidden">Yükleniyor...</span>
+                                            </div>
+                                            <p class="mt-2">Bilgiler yükleniyor...</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Bağlı Cihazlar -->
+                            <div class="col-lg-6">
+                                <div class="detail-section">
+                                    <h5 class="detail-section-title">
+                                        <i class="fas fa-usb me-2"></i>Bağlı Cihazlar
+                                    </h5>
+                                    <div id="deviceInfo" class="detail-section-content">
+                                        <div class="text-center py-3">
+                                            <div class="spinner-border text-primary" role="status">
+                                                <span class="visually-hidden">Yükleniyor...</span>
+                                            </div>
+                                            <p class="mt-2">Bilgiler yükleniyor...</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Yüklü Uygulamalar -->
+                            <div class="col-12">
+                                <div class="detail-section">
+                                    <h5 class="detail-section-title">
+                                        <i class="fas fa-box me-2"></i>Yüklü Uygulamalar
+                                    </h5>
+                                    <div id="appInfo" class="detail-section-content">
+                                        <div class="text-center py-3">
+                                            <div class="spinner-border text-primary" role="status">
+                                                <span class="visually-hidden">Yükleniyor...</span>
+                                            </div>
+                                            <p class="mt-2">Bilgiler yükleniyor...</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
+                    <button type="button" id="refreshDetailBtn" class="btn btn-primary">
+                        <i class="fas fa-sync-alt me-1"></i>Yenile
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Rapor Önizleme Modalı -->
+    <div class="modal fade" id="reportPreviewModal" tabindex="-1" role="dialog" aria-labelledby="reportPreviewModalLabel" aria-modal="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="reportPreviewModalLabel">
+                        <i class="fas fa-file-pdf me-2"></i>
+                        <span id="reportTitle">Rapor Önizleme</span>
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Kapat"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="scrollable-content">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="report-container p-4">
+                                    <div class="d-flex justify-content-between align-items-center mb-4">
+                                        <h2 class="m-0">Rapor Önizleme</h2>
+                                        <div>
+                                            <button id="closeReportBtn" class="btn btn-secondary btn-sm">
+                                                <i class="fas fa-times me-1"></i>Kapat
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <h3>Rapor İçeriği</h3>
+                                            <div id="reportContent"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+    <script>
+        // Global değişkenler
+        let pcDetailModal;
+        var systemStatusChart;
+        var statusPieChart;
+        let currentComputer = null;
+        let computers = [];
+        
+        // Sayfa yüklendiğinde
+        document.addEventListener('DOMContentLoaded', function() {
+            // Modal nesnesini oluştur
+            pcDetailModal = new bootstrap.Modal(document.getElementById('pcDetailModal'));
+            
+            // İlk verileri hemen yükle
+            console.log("Sayfa yüklendi, ilk dashboard güncellemesi yapılıyor");
+            updateDashboard();
+            
+            // Yenileme düğmesi
+            document.getElementById('refreshBtn').addEventListener('click', function() {
+                this.querySelector('i').classList.add('fa-spin');
+                updateDashboard().then(() => {
+                    setTimeout(() => {
+                        this.querySelector('i').classList.remove('fa-spin');
+                    }, 500);
+                });
+            });
+            
+            // Detay yenileme düğmesi
+            document.getElementById('refreshDetailBtn').addEventListener('click', function() {
+                if (currentComputer) {
+                    this.querySelector('i').classList.add('fa-spin');
+                    showDetails(currentComputer, true).then(() => {
+                        setTimeout(() => {
+                            this.querySelector('i').classList.remove('fa-spin');
+                        }, 500);
+                    });
+                }
+            });
+            
+            // Arama kutusunu ayarla
+            const searchInput = document.getElementById('searchInput');
+            searchInput.addEventListener('keyup', function() {
+                const searchVal = this.value.toLowerCase();
+                const rows = document.querySelectorAll('#computersTableBody tr');
+                
+                rows.forEach(row => {
+                    const computerName = row.querySelector('td:first-child').textContent.toLowerCase();
+                    if (computerName.includes(searchVal)) {
+                        row.style.display = '';
+                    } else {
+                        row.style.display = 'none';
+                    }
+                });
+            });
+            
+            // 3 saniyede bir otomatik yenile (30 saniye yerine)
+            setInterval(updateDashboard, 3000);
+            
+            // İlk açılışta hemen yükleme yapılması için zamanlayıcı
+            setTimeout(() => {
+                console.log("İlk yükleme zamanlayıcısı çalıştı");
+                updateDashboard();
+            }, 500);
+            
+            // Grafikleri ilk kez çiz
+            initCharts();
+            
+            // Tüm durum kartlarını animasyonla göster
+            const statusCards = document.querySelectorAll('.status-card');
+            statusCards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.classList.add('fadeIn');
+                    
+                    // Rastgele kartalara parlama efekti ekle
+                    if (Math.random() > 0.5) {
+                        card.classList.add('highlight');
+                    }
+                }, index * 150);
+            });
+            
+            // Sistem durumu için renklendirme
+            document.querySelectorAll('tr').forEach(row => {
+                const statusCell = row.querySelector('td:nth-child(2)');
+                if (statusCell) {
+                    const statusText = statusCell.textContent.trim();
+                    if (statusText.includes('Çevrimiçi')) {
+                        row.classList.add('table-success', 'fade-in-row');
+                    } else if (statusText.includes('Çevrimdışı')) {
+                        row.classList.add('table-danger', 'fade-in-row');
+                    }
+                }
+            });
+        });
+        
+        // Dashboard verilerini günceller
+        async function updateDashboard() {
+            try {
+                // Durumları /api/get_all_pc_status API'sinden al - bu yeni JSON dosyasından bilgileri okur
+                const response = await fetch('/api/get_all_pc_status');
+                const data = await response.json();
+                
+                console.log("API yanıtı alındı:", data);
+                console.log("Toplam bilgisayar:", data.total_computers);
+                console.log("Çevrimiçi bilgisayar:", data.online_computers);
+                console.log("Çevrimdışı bilgisayar:", data.offline_computers);
+                
+                // Tabloyu güncelle
+                updateTable(data.computers);
+                
+                // Özet bilgileri güncelle
+                const totalCount = data.total_computers;
+                const onlineCount = data.online_computers;
+                const offlineCount = data.offline_computers;
+                
+                document.getElementById('activeCount').textContent = totalCount;
+                document.getElementById('onlineCount').textContent = onlineCount;
+                document.getElementById('offlineCount').textContent = offlineCount;
+                
+                // Olay sayısını rastgele atıyoruz (gerçek verilerle değiştirilebilir)
+                const eventCount = Math.floor(Math.random() * 50);
+                document.getElementById('eventCount').textContent = eventCount;
+                
+                // Grafikleri güncelle
+                updateCharts(data.computers);
+                
+                // Son güncelleme zamanını güncelle
+                document.getElementById('lastUpdateTime').textContent = new Date().toLocaleTimeString();
+                
+                return Promise.resolve();
+            } catch (error) {
+                console.error('Dashboard güncellenirken hata oluştu:', error);
+                return Promise.reject(error);
+            }
+        }
+        
+        // Bilgisayar tablosunu günceller
+        function updateTable(computers) {
+            const tbody = document.getElementById('computersTableBody');
+            if (!tbody) return;
+            
+            console.log("Bilgisayar tablosu güncelleniyor, toplam:", computers.length);
+            tbody.innerHTML = '';
+            
+            computers.forEach(computer => {
+                const row = document.createElement('tr');
+                
+                // Debug - konsola bilgisayar durumunu yaz
+                console.log(`Bilgisayar: ${computer.computer_name}, Durum: ${computer.status}`);
+                
+                // Durum sınıfı - AÇIK veya Açık durumlarının ikisini de kontrol et
+                const isOnline = computer.status === 'AÇIK' || computer.status === 'Açık';
+                const statusClass = isOnline ? 'bg-success' : 'bg-danger';
+                const statusText = isOnline ? 'Çevrimiçi' : 'Çevrimdışı';
+                
+                row.innerHTML = `
+                    <td class="fw-bold">${computer.computer_name}</td>
+                    <td>
+                        <span class="badge ${statusClass}">${statusText}</span>
+                    </td>
+                    <td>${computer.last_update}</td>
+                    <td>${computer.operating_system || 'Bilinmiyor'}</td>
+                    <td>${computer.processor || 'Bilinmiyor'}</td>
+                    <td>${computer.ram || 'Bilinmiyor'}</td>
+                    <td>${computer.disk_space || 'Bilinmiyor'}</td>
+                    <td>
+                        <button class="btn btn-primary btn-sm" onclick="showDetails('${computer.computer_name}')">
+                            <i class="fas fa-info-circle me-1"></i>Detaylar
+                        </button>
+                    </td>
+                `;
+                
+                tbody.appendChild(row);
+            });
+            
+            // Tablo satırlarına animasyon ekle
+            const tableRows = tbody.querySelectorAll('tr');
+            tableRows.forEach((row, index) => {
+                row.style.opacity = '0';
+                row.style.transform = 'translateY(20px)';
+                
+                setTimeout(() => {
+                    row.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                    row.style.opacity = '1';
+                    row.style.transform = 'translateY(0)';
+                    
+                    // Satırları duruma göre renklendir
+                    const statusCell = row.querySelector('td:nth-child(2)');
+                    if (statusCell) {
+                        const statusBadge = statusCell.querySelector('.badge');
+                        if (statusBadge && statusBadge.classList.contains('bg-success')) {
+                            row.classList.add('table-success', 'fade-in-row');
+                        } else if (statusBadge && statusBadge.classList.contains('bg-danger')) {
+                            row.classList.add('table-danger', 'fade-in-row');
+                        }
+                    }
+                }, 100 + (index * 50));
+            });
+        }
+        
+        // Bilgisayar detaylarını göster
+        async function showDetails(computerName, forceRefresh = false) {
+            try {
+                // Bilgisayar adını ayarla
+                document.getElementById('computerName').textContent = computerName;
+                currentComputer = computerName;
+                
+                // Modalı göster
+                pcDetailModal.show();
+                
+                // "Yükleniyor" mesajlarını göster
+                document.querySelectorAll('.detail-section-content').forEach(el => {
+                    el.innerHTML = `
+                        <div class="text-center py-3">
+                            <div class="spinner-border text-primary" role="status">
+                                <span class="visually-hidden">Yükleniyor...</span>
+                            </div>
+                            <p class="mt-2">Bilgiler yükleniyor...</p>
+                        </div>
+                    `;
+                });
+                
+                // Bilgileri getir
+                const response = await fetch(`/get_system_details?computer_name=${computerName}`);
+                const data = await response.json();
+                
+                if (data.error) {
+                    throw new Error(data.error);
+                }
+                
+                const details = data.details;
+                if (!details) {
+                    throw new Error('Detaylar alınamadı');
+                }
+                
+                // Donanım bilgilerini göster
+                document.getElementById('hardwareInfo').innerHTML = `
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <div class="detail-card">
+                                <div class="detail-card-title">İşletim Sistemi</div>
+                                <div class="detail-card-value">${details.system.operating_system || 'Bilinmiyor'}</div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="detail-card">
+                                <div class="detail-card-title">İşlemci</div>
+                                <div class="detail-card-value">${details.system.processor || 'Bilinmiyor'}</div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="detail-card">
+                                <div class="detail-card-title">RAM</div>
+                                <div class="detail-card-value">${details.system.ram || 'Bilinmiyor'}</div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="detail-card">
+                                <div class="detail-card-title">Disk</div>
+                                <div class="detail-card-value">${details.system.disk_space || 'Bilinmiyor'}</div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="detail-card">
+                                <div class="detail-card-title">Üretici</div>
+                                <div class="detail-card-value">${details.system.manufacturer || 'Bilinmiyor'}</div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="detail-card">
+                                <div class="detail-card-title">Model</div>
+                                <div class="detail-card-value">${details.system.model || 'Bilinmiyor'}</div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                // Ağ bilgilerini göster
+                const networkHtml = details.networks.length > 0 
+                    ? details.networks.map(n => `
+                        <div class="detail-card mb-3">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="detail-card-title">${n.adapter_name || 'Ağ Adaptörü'}</div>
+                                    <div class="detail-card-value">IP: ${n.ip_address || 'Bilinmiyor'}</div>
+                                    <div class="detail-card-value">MAC: ${n.mac_address || 'Bilinmiyor'}</div>
+                                </div>
+                                <div class="col-md-6 text-md-end">
+                                    <small class="text-muted">Son güncelleme: ${formatDateTime(n.last_update)}</small>
+                                </div>
+                            </div>
+                        </div>
+                    `).join('')
+                    : '<div class="alert alert-info">Ağ bilgisi bulunamadı</div>';
+                document.getElementById('networkInfo').innerHTML = networkHtml;
+                
+                // Port bilgilerini göster
+                const portHtml = details.ports.length > 0
+                    ? details.ports.map(p => `
+                        <div class="detail-card mb-3">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="detail-card-title">Port ${p.port}</div>
+                                    <div class="detail-card-value">${p.process || 'Bilinmiyor'} (PID: ${p.pid || 'Bilinmiyor'})</div>
+                                    <div class="detail-card-value">Kullanıcı: ${p.username || 'Bilinmiyor'}</div>
+                                    <div class="detail-card-value">IP: ${p.ip || 'Bilinmiyor'}</div>
+                                </div>
+                                <div class="col-md-6 text-md-end">
+                                    <small class="text-muted">Son güncelleme: ${formatDateTime(p.last_update)}</small>
+                                </div>
+                            </div>
+                        </div>
+                    `).join('')
+                    : '<div class="alert alert-info">Açık port bulunamadı</div>';
+                document.getElementById('portInfo').innerHTML = portHtml;
+                
+                // Defender bilgilerini göster
+                const defenderHtml = details.defender.length > 0 
+                    ? details.defender.map(d => `
+                        <div class="detail-card mb-3">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="detail-card-title">Olay ID: ${d.event_id || 'Bilinmiyor'}</div>
+                                    <div class="detail-card-value">${d.description || 'Açıklama yok'}</div>
+                                    <div class="detail-card-value">Kaynak: ${d.source || 'Bilinmiyor'}</div>
+                                </div>
+                                <div class="col-md-6 text-md-end">
+                                    <small class="text-muted">Zaman: ${formatDateTime(d.time)}</small>
+                                    <br>
+                                    <small class="text-muted">Son güncelleme: ${formatDateTime(d.last_update)}</small>
+                                </div>
+                            </div>
+                        </div>
+                    `).join('')
+                    : '<div class="alert alert-info">Defender olayı bulunamadı</div>';
+                document.getElementById('defenderInfo').innerHTML = defenderHtml;
+                
+                // Olay bilgilerini göster
+                const eventHtml = details.events.length > 0
+                    ? details.events.map(e => `
+                        <div class="detail-card mb-3">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="detail-card-title">${e.app_name || 'Bilinmiyor'}</div>
+                                    <div class="detail-card-value">${e.event_type || 'Bilinmiyor'}</div>
+                                </div>
+                                <div class="col-md-6 text-md-end">
+                                    <small class="text-muted">Zaman: ${formatDateTime(e.timestamp)}</small>
+                                    <br>
+                                    <small class="text-muted">Son güncelleme: ${formatDateTime(e.last_update)}</small>
+                                </div>
+                            </div>
+                        </div>
+                    `).join('')
+                    : '<div class="alert alert-info">Olay bulunamadı</div>';
+                document.getElementById('eventInfo').innerHTML = eventHtml;
+                
+                // Bağlı cihazları göster
+                const deviceHtml = details.devices.length > 0
+                    ? details.devices.map(d => `
+                        <div class="detail-card mb-3">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div class="detail-card-title">${d.name || 'Bilinmiyor'}</div>
+                                </div>
+                                <div class="col-md-4 text-md-end">
+                                    <small class="text-muted">Son güncelleme: ${formatDateTime(d.last_update)}</small>
+                                </div>
+                            </div>
+                        </div>
+                    `).join('')
+                    : '<div class="alert alert-info">Bağlı cihaz bulunamadı</div>';
+                document.getElementById('deviceInfo').innerHTML = deviceHtml;
+                
+                // Yüklü uygulamaları göster
+                const appHtml = details.applications.length > 0
+                    ? `
+                        <div class="table-responsive">
+                            <table class="table table-sm table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Uygulama</th>
+                                        <th>Versiyon</th>
+                                        <th>Yayıncı</th>
+                                        <th>Kurulum Tarihi</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    ${details.applications.map(a => `
+                                        <tr>
+                                            <td>${a.name || 'Bilinmiyor'}</td>
+                                            <td>${a.version || 'Bilinmiyor'}</td>
+                                            <td>${a.publisher || 'Bilinmiyor'}</td>
+                                            <td>${formatDateTime(a.install_date)}</td>
+                                        </tr>
+                                    `).join('')}
+                                </tbody>
+                            </table>
+                        </div>
+                    `
+                    : '<div class="alert alert-info">Yüklü uygulama bulunamadı</div>';
+                document.getElementById('appInfo').innerHTML = appHtml;
+                
+                return Promise.resolve();
+            } catch (error) {
+                console.error('Detay getirme hatası:', error);
+                // Hata mesajı göster
+                document.querySelectorAll('.detail-section-content').forEach(el => {
+                    el.innerHTML = `
+                        <div class="alert alert-danger">
+                            <i class="fas fa-exclamation-triangle me-2"></i>
+                            Bilgiler alınamadı: ${error.message}
+                        </div>
+                    `;
+                });
+                return Promise.reject(error);
+            }
+        }
+        
+        // Grafikleri başlat
+        function initCharts() {
+            // Sistem durumu çizgi grafiği
+            const ctxLine = document.getElementById('systemStatusChart').getContext('2d');
+            systemStatusChart = new Chart(ctxLine, {
+                type: 'line',
+                data: {
+                    labels: Array(12).fill(0).map((_, i) => `${i*5} dk önce`).reverse(),
+                    datasets: [{
+                        label: 'Çevrimiçi Sistemler',
+                        data: Array(12).fill(0),
+                        borderColor: '#1cc88a',
+                        backgroundColor: 'rgba(28, 200, 138, 0.1)',
+                        borderWidth: 2,
+                        tension: 0.3,
+                        fill: true
+                    }]
+                },
+                options: {
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: true,
+                            position: 'top'
+                        }
+                    },
+                    scales: {
+                        x: {
+                            grid: {
+                                display: false
+                            }
+                        },
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                precision: 0
+                            }
+                        }
+                    },
+                    animation: {
+                        duration: 1000
+                    }
+                }
+            });
+            
+            // Durum pasta grafiği
+            const ctxPie = document.getElementById('statusPieChart').getContext('2d');
+            statusPieChart = new Chart(ctxPie, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Çevrimiçi', 'Çevrimdışı'],
+                    datasets: [{
+                        data: [0, 0],
+                        backgroundColor: ['#1cc88a', '#e74a3b'],
+                        hoverBackgroundColor: ['#17a673', '#e02d1b'],
+                        hoverBorderColor: 'rgba(234, 236, 244, 1)'
+                    }]
+                },
+                options: {
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: true,
+                            position: 'bottom'
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return context.label + ': ' + context.raw + ' PC';
+                                }
+                            }
+                        }
+                    },
+                    cutout: '70%',
+                    animation: {
+                        duration: 1000,
+                        animateRotate: true,
+                        animateScale: true
+                    }
+                }
+            });
+            
+            // Grafikleri ilk veriyle doldurmak için 2 saniye sonra updateDashboard() çağrısı yap
+            setTimeout(() => {
+                console.log("Grafikleri ilk verilerle doldurma için updateDashboard() çağrılıyor");
+                updateDashboard();
+            }, 2000);
+        }
+        
+        // Grafikleri güncelle
+        function updateCharts(computers) {
+            if (!systemStatusChart || !statusPieChart) return;
+            
+            // Sistemlerin durumlarını güncelle - hem 'AÇIK' hem de 'Açık' durumlarını kontrol et
+            const onlineCount = computers.filter(c => c.status === 'AÇIK' || c.status === 'Açık').length;
+            const offlineCount = computers.length - onlineCount;
+            
+            console.log("Grafik güncelleniyor: Çevrimiçi:", onlineCount, "Çevrimdışı:", offlineCount);
+            
+            // Çizgi grafiği güncelle
+            systemStatusChart.data.datasets[0].data.shift();
+            systemStatusChart.data.datasets[0].data.push(onlineCount);
+            systemStatusChart.update();
+            
+            // Pasta grafiği güncelle
+            statusPieChart.data.datasets[0].data = [onlineCount, offlineCount];
+            statusPieChart.update();
+        }
+        
+        // Tarih formatı
+        function formatDateTime(dateStr) {
+            if (!dateStr) return 'Bilinmiyor';
+            
+            try {
+                const date = new Date(dateStr);
+                if (isNaN(date.getTime())) return dateStr;
+                
+                return date.toLocaleString('tr-TR', {
+                    day: '2-digit',
+                    month: '2-digit',
+                    year: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit'
+                });
+            } catch (e) {
+                return dateStr;
+            }
+        }
+        
+        // Henüz tamamlanmamış özellikler için bildirim göster
+        function showNotImplemented() {
+            const alertHtml = `
+                <div class="alert alert-info alert-dismissible fade show position-fixed top-0 start-50 translate-middle-x mt-5" style="z-index: 9999;" role="alert">
+                    <i class="fas fa-info-circle me-2"></i>
+                    Bu özellik henüz tamamlanmadı. Yakında kullanıma sunulacaktır.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Kapat"></button>
+                </div>
+            `;
+            
+            // Mevcut uyarıları temizle
+            document.querySelectorAll('.alert-info.position-fixed').forEach(el => el.remove());
+            
+            // Yeni uyarıyı ekle
+            const alertElement = document.createElement('div');
+            alertElement.innerHTML = alertHtml;
+            document.body.appendChild(alertElement.firstElementChild);
+            
+            // 3 saniye sonra otomatik kapat
+            setTimeout(() => {
+                const alert = document.querySelector('.alert-info.position-fixed');
+                if (alert) {
+                    const bsAlert = new bootstrap.Alert(alert);
+                    bsAlert.close();
+                }
+            }, 3000);
+        }
+    </script>
+</body>
+</html>

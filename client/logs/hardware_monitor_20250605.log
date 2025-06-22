@@ -1,0 +1,4 @@
+2025-06-05 16:35:52,580 - INFO - Hardware monitor baþlatýlýyor...
+2025-06-05 16:35:54,408 - DEBUG - # _do_auth(): self._auth_plugin: 
+2025-06-05 16:35:54,408 - DEBUG - new_auth_plugin: caching_sha2_password
+2025-06-05 16:35:56,263 - INFO - Hardware monitor tamamlandý.
